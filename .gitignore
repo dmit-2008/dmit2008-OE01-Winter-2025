@@ -38,5 +38,6 @@ jspm_packages
 .next
 
 .parcel
+.parcel-cache
 dist/
 
