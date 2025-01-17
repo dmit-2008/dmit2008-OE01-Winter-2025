@@ -18,6 +18,9 @@ replace the instances that have "THIS FORMAT HERE" with the astronautData.
 // export that function
 // use this function in the index.js
 const renderAstronaut = (astronautData) => {
+  // the astronaut data is the data from
+  // the api, change the capitalize pieces to the data.
+
   return `<li href="#" class="list-group-item list-group-item-action">
       <div class="d-flex w-100 justify-content-between">
           <img src="PROFILE THUMBNAIL HERE" class="rounded float-start" alt=""">
