@@ -23,10 +23,14 @@ const loadAndRenderAstronauts = async () => {
   console.log(data)
 
   // we are going to render these astronauts.
-
+  // we need to loop through the results key
+  // from the data
+  data.results.map((astronaut)=> {
+    console.log(astronaut)
+  })
 }
 
 // fire when the page is loaded
 document.addEventListener("DOMContentLoaded", async ()=> {
-  loadAndRenderAstronauts()
+  await loadAndRenderAstronauts()
 })
