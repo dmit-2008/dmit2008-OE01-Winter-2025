@@ -16,6 +16,13 @@ https://lldev.thespacedevs.com/2.3.0/astronauts/?mode=list
 
 */
 
+// next class, we'll wrap up this example
+// by adding the search functionilty
+// using the api endpoint
+//https://lldev.thespacedevs.com/2.3.0/astronauts/?mode=detailed&search=Aldrin
+// where essentially we're adding search
+
+
 const loadAndRenderAstronauts = async () => {
   // let's select the astronaut list we'll need
   let astronautListContainer = document.querySelector(".astronaut-list")
