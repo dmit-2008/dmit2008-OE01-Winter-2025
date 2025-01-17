@@ -2,6 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { getAstronautList } from './api/astronaut'
+import { renderAstronaut } from './dom/astronaut'
 /*
 I want to use the api
 the space devs
@@ -19,9 +20,9 @@ const loadAndRenderAstronauts = async () => {
   // perform all of the fetch that we did in
   // the file
   const data = await getAstronautList()
+  console.log(data)
 
   // we are going to render these astronauts.
-
 
 }
 
