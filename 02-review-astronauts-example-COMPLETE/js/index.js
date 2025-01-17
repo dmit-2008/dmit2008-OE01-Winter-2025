@@ -20,8 +20,9 @@ const loadAndRenderAstronauts = async () => {
   // the file
   const data = await getAstronautList()
 
-  // getting the first item
-  console.log(data.results[0].name)
+  // we are going to render these astronauts.
+
+
 }
 
 // fire when the page is loaded
