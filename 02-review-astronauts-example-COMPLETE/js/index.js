@@ -17,6 +17,9 @@ https://lldev.thespacedevs.com/2.3.0/astronauts/?mode=list
 */
 
 const loadAndRenderAstronauts = async () => {
+  // let's select the astronaut list we'll need
+  let astronautListContainer = document.querySelector(".astronaut-list")
+
   // perform all of the fetch that we did in
   // the file
   const data = await getAstronautList()
@@ -27,6 +30,10 @@ const loadAndRenderAstronauts = async () => {
   // from the data
   data.results.map((astronaut)=> {
     console.log(astronaut)
+    // let's call our renderAstronaut and the
+    // the html of the list item
+    let listItem = renderAstronaut(astronaut)
+    // let's render it to the page.
   })
 }
 
