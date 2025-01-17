@@ -34,6 +34,7 @@ const loadAndRenderAstronauts = async () => {
     // the html of the list item
     let listItem = renderAstronaut(astronaut)
     // let's render it to the page.
+    astronautListContainer.innerHTML += listItem
   })
 }
 
