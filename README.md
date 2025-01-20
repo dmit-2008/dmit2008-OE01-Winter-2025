@@ -17,4 +17,4 @@ git pull
 - install `degit` locally
 `npm install -g degit`
 - download all of the files locally
-`npx degit https://github.com/dmit-2008/dmit2008-A01-winter-2025/<folder-name>`
+`npx degit https://github.com/dmit-2008/dmit2008-A01-Winter-2025/<folder-name> .`
