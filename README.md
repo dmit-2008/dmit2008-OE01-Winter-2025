@@ -18,3 +18,18 @@ git pull
 `npm install -g degit`
 - download all of the files locally
 `npx degit https://github.com/dmit-2008/dmit2008-A01-Winter-2025/<folder-name> .`
+
+### If you're using Degit you can setup a handy command
+
+```
+doskey download-js-example=npx degit https://github.com/dmit-2008/dmit2008-A01-Winter-2025/$1 $1
+```
+- once you restart your conemu you can use the command
+```
+download-js-example <folder-name>
+```
+example
+```
+download-js-example 02-review-astronauts-example-COMPLETE
+```
+should download to a folder
