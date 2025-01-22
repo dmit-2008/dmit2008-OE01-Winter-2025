@@ -16,7 +16,9 @@ const getAstronautList = async ({search}) => {
   console.log(paramsObj)
   // use something called urlsearchparams to render
   // our params for the url
+  const params = new URLSearchParams(paramsObj)
 
+  console.log(params.toString())
 
   // I'm going to make the request
   const URL = `${BASE_URL}/astronauts/?mode=list`

@@ -60,7 +60,6 @@ const loadAndRenderAstronauts = async (search) => {
   // we need to loop through the results key
   // from the data
   data.results.map((astronaut)=> {
-    console.log(astronaut)
     // let's call our renderAstronaut and the
     // the html of the list item
     let listItem = renderAstronaut(astronaut)
