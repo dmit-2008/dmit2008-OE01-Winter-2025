@@ -13,7 +13,7 @@ const getAstronautList = async ({search}) => {
     mode: "list",
   }
   if (search) {
-    paramsObj.search= search
+    paramsObj.search = search
   }
   console.log(paramsObj)
   // use something called urlsearchparams to render
