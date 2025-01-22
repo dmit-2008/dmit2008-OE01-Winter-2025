@@ -32,19 +32,29 @@ searchForm.addEventListener("submit", (event)=> {
   let searchInput = searchForm.elements["search"]
   // let's print the value out
   console.log(searchInput.value)
+  // we could check to see there's a search value
+  if (searchInput.value !== "") {
+    // make the request
+    loadAndRenderAstronauts(searchInput.value)
+  }
 
 })
 
 
-
-const loadAndRenderAstronauts = async () => {
+// change this function so that it can take a search parameter
+const loadAndRenderAstronauts = async (search) => {
   // let's select the astronaut list we'll need
   let astronautListContainer = document.querySelector(".astronaut-list")
 
   // perform all of the fetch that we did in
   // the file
-  const data = await getAstronautList()
+  const data = await getAstronautList({
+    search: search
+  })
   console.log(data)
+
+  // we clear what's display on the page.
+  astronautListContainer.innerHTML = ""
 
   // we are going to render these astronauts.
   // we need to loop through the results key

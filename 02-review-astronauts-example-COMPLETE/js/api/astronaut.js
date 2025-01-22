@@ -4,7 +4,20 @@ const BASE_URL = "https://lldev.thespacedevs.com/2.3.0"
 // api functions here.
 // create an api function that
 // returns the data from the server
-const getAstronautList = async () => {
+
+// modify this function so that I can pass in the search
+// value to the the api, we're also using object
+// destructuring in the parameter.
+const getAstronautList = async ({search}) => {
+  let paramsObj = {
+    mode: "list",
+    search: search
+  }
+  console.log(paramsObj)
+  // use something called urlsearchparams to render
+  // our params for the url
+
+
   // I'm going to make the request
   const URL = `${BASE_URL}/astronauts/?mode=list`
   // let's make the fetch request
