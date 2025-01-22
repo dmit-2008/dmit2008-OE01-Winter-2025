@@ -11,6 +11,7 @@ const BASE_URL = "https://lldev.thespacedevs.com/2.3.0"
 const getAstronautList = async ({search}) => {
   let paramsObj = {
     mode: "list",
+
   }
   if (search) {
     paramsObj.search = search
