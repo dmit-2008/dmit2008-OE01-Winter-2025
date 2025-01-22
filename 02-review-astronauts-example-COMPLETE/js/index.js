@@ -32,11 +32,9 @@ searchForm.addEventListener("submit", (event)=> {
   let searchInput = searchForm.elements["search"]
   // let's print the value out
   console.log(searchInput.value)
-  // we could check to see there's a search value
-  if (searchInput.value !== "") {
-    // make the request
-    loadAndRenderAstronauts(searchInput.value)
-  }
+  // make the request
+  loadAndRenderAstronauts(searchInput.value)
+
 
 })
 
