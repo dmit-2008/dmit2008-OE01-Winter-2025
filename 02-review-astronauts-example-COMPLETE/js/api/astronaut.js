@@ -11,7 +11,7 @@ const BASE_URL = "https://lldev.thespacedevs.com/2.3.0"
 const getAstronautList = async ({search}) => {
   let paramsObj = {
     mode: "list",
-    search: search
+    search: search ? search : "" // using a ternary
   }
   console.log(paramsObj)
   // use something called urlsearchparams to render
@@ -21,7 +21,8 @@ const getAstronautList = async ({search}) => {
   console.log(params.toString())
 
   // I'm going to make the request
-  const URL = `${BASE_URL}/astronauts/?mode=list`
+  // let's pass in the params to the url
+  const URL = `${BASE_URL}/astronauts/?${params.toString()}`
   // let's make the fetch request
   const response = await fetch(URL, {
     method: "GET" // we don't need to add this as a default
