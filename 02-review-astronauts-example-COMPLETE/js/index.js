@@ -22,6 +22,20 @@ https://lldev.thespacedevs.com/2.3.0/astronauts/?mode=list
 //https://lldev.thespacedevs.com/2.3.0/astronauts/?mode=detailed&search=Aldrin
 // where essentially we're adding search
 
+// intercept the form get the input.
+let searchForm = document.querySelector("#search-astronauts")
+// add the event listener
+searchForm.addEventListener("submit", (event)=> {
+  // go take a look dialog html element you might not need this piece.
+  event.preventDefault()
+  // let's get the input and display it
+  let searchInput = searchForm.elements["search"]
+  // let's print the value out
+  console.log(searchInput.value)
+
+})
+
+
 
 const loadAndRenderAstronauts = async () => {
   // let's select the astronaut list we'll need
