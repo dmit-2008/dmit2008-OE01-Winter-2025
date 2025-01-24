@@ -7,6 +7,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 // folder is @/ (in components-intro director)
 
 import Title from '@/components/Title'
+import ConceptList from "@/components/ConceptList";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,10 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         {/* Inside of the main we're going use it */}
         <Title text={"Look a component!"}/>
-
+        {/* Our component we'll be using */}
+        <ConceptList>
+          <li>Props and the children prop</li>
+        </ConceptList>
       </main>
 
     </div>
