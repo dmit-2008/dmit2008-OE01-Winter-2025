@@ -30,8 +30,8 @@ export default function Home() {
         {/* Our component we'll be using */}
         <ConceptList>
           <ConceptItem idea={"Props and the children prop"}/>
-          <li>Importing components</li>
-          <li>Using Lists</li>
+          <ConceptItem idea={"Importing components"}/>
+          <ConceptItem idea={"Using Lists"}/>
         </ConceptList>
       </main>
 
