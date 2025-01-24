@@ -11,6 +11,8 @@
 export default function Title({text}) {
   // we're going to return a single node of JSX
   // which is going to be here an h1
-  return <h1>{text}</h1>
+  return <h1>
+    {text}
+  </h1>
   // note that between the {} I'm using javascript
 }
