@@ -2,7 +2,9 @@
 // wraps children with a ul
 // element
 export default function ConceptList({ children }) {
-  return <ul>
+  // remember that you can use the style property which is
+  // an object that camelCases all css properties.
+  return <ul style={{color: "green"}}>
     {children}
   </ul>
 }
