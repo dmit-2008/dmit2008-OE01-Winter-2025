@@ -8,10 +8,5 @@ export default function ConceptList({ children }) {
     {children}
   </ul>
 }
-
-
 // once done import and use in
 // index.js
-
-// Once done the above create a ConceptItem component.
-// that takes a single prop called idea
