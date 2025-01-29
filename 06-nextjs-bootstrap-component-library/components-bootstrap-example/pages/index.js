@@ -27,7 +27,7 @@ export default function Home() {
             </Col>
             <Col>
               <h2>Some more functionality</h2>
-
+              {/* add a button here an accordion */}
             </Col>
           </Row>
         </Container>
