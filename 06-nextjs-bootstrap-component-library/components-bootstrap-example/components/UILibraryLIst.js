@@ -31,7 +31,17 @@ const UI_LIBRARY_LIST = [
 ]
 
 export default function UILibraryList() {
+  // loop over each item
   return <ListGroup>
-
+    {UI_LIBRARY_LIST.map((uiLibrary, index)=> {
+      // the key is needed to be unique.
+      return <ListGroup.Item key={index}>
+        <a
+          href={uiLibrary.url}
+        >
+          {uiLibrary.name}
+        </a>
+      </ListGroup.Item>
+    })}
   </ListGroup>
 }
