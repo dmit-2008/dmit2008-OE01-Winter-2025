@@ -9,6 +9,9 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+// our own custom import
+import UILibraryList from '@/components/UILibraryLIst';
+
 export default function Home() {
   return (
     <div>
@@ -19,6 +22,8 @@ export default function Home() {
           <Row>
             <Col>
               <h2>A List of component librares</h2>
+              {/* use our own components */}
+              <UILibraryList />
             </Col>
             <Col>
               <h2>Some more functionality</h2>
