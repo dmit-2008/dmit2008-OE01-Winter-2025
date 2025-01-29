@@ -8,6 +8,8 @@
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+
 
 // our own custom import
 import UILibraryList from '@/components/UILibraryLIst';
@@ -28,6 +30,9 @@ export default function Home() {
             <Col>
               <h2>Some more functionality</h2>
               {/* add a button here an accordion */}
+              <Button variant="danger">
+                Don't click this button
+              </Button>
             </Col>
           </Row>
         </Container>
