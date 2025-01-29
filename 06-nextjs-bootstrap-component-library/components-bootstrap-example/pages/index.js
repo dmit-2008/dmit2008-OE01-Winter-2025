@@ -27,6 +27,7 @@ export default function Home() {
             </Col>
             <Col>
               <h2>Some more functionality</h2>
+
             </Col>
           </Row>
         </Container>
