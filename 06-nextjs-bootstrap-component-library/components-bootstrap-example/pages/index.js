@@ -5,10 +5,11 @@
 
 // if you go take a look at https://react-bootstrap.netlify.app/docs/layout/grid/#container
 // documentation you will how to use this react container.
+import Accordion from 'react-bootstrap/Accordion'
+import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
 
 
 // our own custom import
@@ -33,6 +34,20 @@ export default function Home() {
               <Button variant="danger">
                 Don't click this button
               </Button>
+              <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Accordion Item #1</Accordion.Header>
+                  <Accordion.Body>
+                    React bootstrap is really neat
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>Accordion Item #2</Accordion.Header>
+                  <Accordion.Body>
+                    A second item.
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
             </Col>
           </Row>
         </Container>
