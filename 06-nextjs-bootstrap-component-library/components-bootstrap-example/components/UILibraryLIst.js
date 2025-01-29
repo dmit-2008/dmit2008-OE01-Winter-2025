@@ -38,6 +38,7 @@ export default function UILibraryList() {
       return <ListGroup.Item key={index}>
         <a
           href={uiLibrary.url}
+          target="_blank"
         >
           {uiLibrary.name}
         </a>
