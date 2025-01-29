@@ -27,7 +27,15 @@ const UI_LIBRARY_LIST = [
 	{
 		name: "Semantic UI",
 		url: "https://react.semantic-ui.com/"
-	}
+	},
+  {
+    name: "Shadcn (so hot right now)",
+    url: "https://ui.shadcn.com/"
+  },
+  {
+    name: "react windows 95",
+    url: "https://storybook.react95.io/?path=/story/docs-welcome-to-react95--page"
+  }
 ]
 
 export default function UILibraryList() {
