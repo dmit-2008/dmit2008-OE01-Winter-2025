@@ -34,6 +34,8 @@ export default function Home() {
               <Button variant="danger">
                 Don't click this button
               </Button>
+              {/* You could porobably make this
+              it's own component. */}
               <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Accordion Item #1</Accordion.Header>
