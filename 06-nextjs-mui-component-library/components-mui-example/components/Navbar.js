@@ -9,9 +9,9 @@ import BiotechIcon from '@mui/icons-material/Biotech';
 // than @mui/material different packages need
 // different installations.
 
-
 // we're creating the custom component that will contain the mui navbar
-export default function Navbar() {
+// make the title prop pass it in, in the index.js
+export default function Navbar({title}) {
   // take a look here https://mui.com/material-ui/react-app-bar/#basic-app-bar
   // for the docs we're using some of the pieces here.
   return <AppBar>
@@ -32,7 +32,7 @@ export default function Navbar() {
         variant="h6"
         component="div"
       >
-        Intro to MUI
+        {title}
       </Typography>
     </Toolbar>
   </AppBar>

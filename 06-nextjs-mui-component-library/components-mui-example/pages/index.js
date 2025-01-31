@@ -12,7 +12,7 @@ import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
     <div>
-      <Navbar />
+      <Navbar title={"MUI Research"}/>
       {/* add a container!
         Please refer to the docs right here
         https://mui.com/material-ui/api/container/
