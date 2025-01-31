@@ -5,6 +5,10 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import BiotechIcon from '@mui/icons-material/Biotech';
+// note that @mui/icons-material is different
+// than @mui/material different packages need
+// different installations.
+
 
 // we're creating the custom component that will contain the mui navbar
 export default function Navbar() {
