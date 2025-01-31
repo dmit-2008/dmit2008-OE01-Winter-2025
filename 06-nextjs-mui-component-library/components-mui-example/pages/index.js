@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
+      {/* add a container! */}
       <main>
         <Typography variant="h1">
           An Example of using MUI
