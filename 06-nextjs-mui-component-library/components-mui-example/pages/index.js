@@ -30,6 +30,8 @@ export default function Home() {
         <Typography variant="h3" component="h1">
           An Example of using MUI
         </Typography>
+
+
       </Container>
 
     </div>

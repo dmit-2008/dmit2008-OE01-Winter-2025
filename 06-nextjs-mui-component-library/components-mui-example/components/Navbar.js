@@ -1,6 +1,7 @@
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
@@ -10,6 +11,16 @@ export default function Navbar() {
   // for the docs we're using some of the pieces here.
   return <AppBar>
     <Toolbar>
+      <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="menu"
+        sx={{ mr: 2 }}
+      >
+
+      </IconButton>
+
       {/* I want you to look as an h6 but use a div to render */}
       <Typography
         variant="h6"
