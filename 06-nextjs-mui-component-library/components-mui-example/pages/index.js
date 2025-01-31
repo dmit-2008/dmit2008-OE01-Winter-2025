@@ -25,9 +25,9 @@ export default function Home() {
       <Container
         component="main"
         maxWidth="md"
-        sx={{marginTop: 2}}
+        sx={{marginTop: 8}}
       >
-        <Typography variant="h1">
+        <Typography variant="h3" component="h1">
           An Example of using MUI
         </Typography>
       </Container>
