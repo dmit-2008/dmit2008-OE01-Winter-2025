@@ -4,6 +4,7 @@
 
 // for imports on mui this is the recommended
 // way of importing them, use this way.
+import Container from '@mui/material/Container';
 import Typography from "@mui/material/Typography"
 
 import Navbar from "@/components/Navbar";
@@ -12,12 +13,25 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      {/* add a container! */}
-      <main>
+      {/* add a container!
+        Please refer to the docs right here
+        https://mui.com/material-ui/api/container/
+        We're going to add a custom one off
+        style with the sx prop.
+        The sx prop gives you customization on the
+        styles for that component
+        Read here https://mui.com/system/getting-started/the-sx-prop/
+      */}
+      <Container
+        component="main"
+        maxWidth="md"
+        sx={{marginTop: 2}}
+      >
         <Typography variant="h1">
           An Example of using MUI
         </Typography>
-      </main>
+      </Container>
+
     </div>
   );
 }
