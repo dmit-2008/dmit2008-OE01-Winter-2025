@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import BiotechIcon from '@mui/icons-material/Biotech';
 
 // we're creating the custom component that will contain the mui navbar
 export default function Navbar() {
@@ -18,7 +19,8 @@ export default function Navbar() {
         aria-label="menu"
         sx={{ mr: 2 }}
       >
-
+        {/* the icon using material icons */}
+        <BiotechIcon />
       </IconButton>
 
       {/* I want you to look as an h6 but use a div to render */}
