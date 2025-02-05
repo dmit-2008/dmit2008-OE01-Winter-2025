@@ -2,6 +2,10 @@
 import {  createTheme } from '@mui/material/styles';
 
 // create the themeOptions
+/*
+The themeOptions below is using essentially the mui material builder
+over here https://zenoo.github.io/mui-theme-creator/
+*/
 const themeOptions = {
   palette: {
     primary: {
