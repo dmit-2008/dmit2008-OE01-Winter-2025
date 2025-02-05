@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import Typography from "@mui/material/Typography"
 
 import Navbar from "@/components/Navbar";
+import SimpleForm from '@/components/SimpleForm';
 
 export default function Home() {
   return (
@@ -30,8 +31,7 @@ export default function Home() {
         <Typography variant="h3" component="h1">
           An Example of using MUI
         </Typography>
-
-
+        <SimpleForm />
       </Container>
 
     </div>
