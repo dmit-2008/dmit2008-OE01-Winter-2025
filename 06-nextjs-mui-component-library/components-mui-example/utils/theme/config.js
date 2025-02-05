@@ -2,7 +2,17 @@
 import { createTheme } from '@mui/material/styles';
 
 // create a theme options object
-
+export const themeOptions = {
+  palette: {
+    text: {
+      primary: 'rgba(37,4,148,0.87)',
+    },
+    primary: {
+      main: '#390254',
+    },
+  },
+};
 
 
 // we're going to export it.
+export { themeOptions }
