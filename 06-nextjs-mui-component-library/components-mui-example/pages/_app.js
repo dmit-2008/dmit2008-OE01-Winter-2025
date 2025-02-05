@@ -8,7 +8,7 @@ import '@fontsource/roboto/700.css';
 // we're going to import the "themeProvider"
 import { ThemeProvider } from '@mui/material/styles';
 // we're going import our theme
-import { themeOptions } from "@/utils/theme/config";
+import { theme } from "@/utils/theme/config";
 
 
 export default function App({ Component, pageProps }) {
@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
   // I'm going to wrap my application component in the
   // ThemeProvider and inject my theme.
 
-  return <ThemeProvider theme={themeOptions}>
+  return <ThemeProvider theme={theme}>
     <Component {...pageProps} />;
   </ThemeProvider>
 }

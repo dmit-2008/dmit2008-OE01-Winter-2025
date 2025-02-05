@@ -13,6 +13,10 @@ export const themeOptions = {
   },
 };
 
+// to create the theme
+// using
+const theme = createTheme(themeOptions)
+
 
 // we're going to export it.
-export { themeOptions }
+export { theme }
