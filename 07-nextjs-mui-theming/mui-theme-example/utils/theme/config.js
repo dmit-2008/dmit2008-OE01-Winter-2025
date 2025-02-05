@@ -3,7 +3,22 @@ import {  createTheme } from '@mui/material/styles';
 
 // create the themeOptions
 const themeOptions = {
-
+  palette: {
+    primary: {
+      main: '#037f8a',
+    },
+    secondary: {
+      main: '#050a9a',
+    },
+  },
+  typography: {
+    h2: {
+      fontSize: '2rem',
+    },
+    body1: {
+      fontSize: '1.2rem',
+    },
+  },
 }
 
 // create the theme and export it.
