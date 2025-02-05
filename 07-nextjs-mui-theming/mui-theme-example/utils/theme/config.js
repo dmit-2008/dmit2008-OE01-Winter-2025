@@ -4,7 +4,7 @@ import {  createTheme } from '@mui/material/styles';
 // create the themeOptions
 /*
 The themeOptions below is using essentially the mui material builder
-over here https://zenoo.github.io/mui-theme-creator/
+over here
 */
 const themeOptions = {
   palette: {
@@ -24,7 +24,6 @@ const themeOptions = {
     },
   },
 }
-
 // create the theme and export it.
 const theme = createTheme(themeOptions)
 
