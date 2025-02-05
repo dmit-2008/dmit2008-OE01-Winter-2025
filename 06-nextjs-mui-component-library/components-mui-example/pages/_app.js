@@ -10,7 +10,6 @@ import { ThemeProvider } from '@mui/material/styles';
 // we're going import our theme
 import { theme } from "@/utils/theme/config";
 
-
 export default function App({ Component, pageProps }) {
   // for my theme to be applied on the site completely
   // I'm going to wrap my application component in the

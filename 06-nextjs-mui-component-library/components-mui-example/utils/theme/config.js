@@ -13,8 +13,8 @@ export const themeOptions = {
   },
 };
 
-// to create the theme
-// using
+// to create the themeOptions
+// usable MUI theme.
 const theme = createTheme(themeOptions)
 
 
