@@ -30,11 +30,20 @@ export default function Home() {
               <TextField
                 variant="outlined"
                 label="The thing todo"
+                fullWidth
               />
+              {/* full width prop essentially
+              extends the textfield to the end of the grid */}
             </Grid>
             {/* one for the button */}
             <Grid size={2}>
-
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+              >
+                Add Todo
+              </Button>
             </Grid>
 
           </Grid>
