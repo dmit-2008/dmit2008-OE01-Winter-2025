@@ -28,6 +28,15 @@ export default function Home() {
     setTodoValue(event.target.value)
   }
   // hook into the submit on the form
+  const submitHandler = (event) => {
+    // prevent the form from submitting.
+    event.preventDefault()
+
+    // let's take a look at hte todovalue
+    console.log("Submitted")
+    console.log(`the value is ${todoValue}`)
+  }
+
 
   return (
     <div>
