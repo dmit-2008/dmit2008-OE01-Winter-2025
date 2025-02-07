@@ -46,7 +46,10 @@ export default function Home() {
         component="main"
         sx={{mt: 10}}
       >
-        <form>
+        {/* listen to the submit event. */}
+        <form
+          onSubmit={submitHandler}
+        >
           {/* refer to https://mui.com/material-ui/react-grid2/ */}
           <Grid container spacing={2}>
             {/* one for the textfield */}
