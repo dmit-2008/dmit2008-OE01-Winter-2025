@@ -3,7 +3,6 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid2';
 import TextField from '@mui/material/TextField';
 
-
 import Navbar from "@/components/Navbar";
 
 // make a form
@@ -18,9 +17,27 @@ export default function Home() {
   return (
     <div>
       <Navbar title={"Our First State Example"} />
-      <Container maxWidth="md" component="main">
+      <Container
+        maxWidth="md"
+        component="main"
+        sx={{mt: 10}}
+      >
         <form>
+          {/* refer to https://mui.com/material-ui/react-grid2/ */}
+          <Grid container spacing={2}>
+            {/* one for the textfield */}
+            <Grid size={10}>
+              <TextField
+                variant="outlined"
+                label="The thing todo"
+              />
+            </Grid>
+            {/* one for the button */}
+            <Grid size={2}>
 
+            </Grid>
+
+          </Grid>
         </form>
       </Container>
     </div>
