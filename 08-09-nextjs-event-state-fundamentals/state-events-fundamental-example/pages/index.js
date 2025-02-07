@@ -1,3 +1,6 @@
+// to use state in react I need to import it first
+import {useState} from "react"
+
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid2';
@@ -14,6 +17,18 @@ import Navbar from "@/components/Navbar";
 // and if you're done this where's the state.
 
 export default function Home() {
+  // I want you to do two things.
+
+  // create a stateful value and hook it up
+  // to the text field
+  // below take a look at the TextFieldComponent
+  const [todoValue, setTodoValue] = useState("")
+
+  const updateTodoValue = (event) => {
+    setTodoValue(event.target.value)
+  }
+  // hook into the submit on the form
+
   return (
     <div>
       <Navbar title={"Our First State Example"} />
@@ -27,10 +42,17 @@ export default function Home() {
           <Grid container spacing={2}>
             {/* one for the textfield */}
             <Grid size={10}>
+              {/* make our text field "controlled"
+              with the stateful of todoValue */}
               <TextField
                 variant="outlined"
                 label="The thing todo"
                 fullWidth
+                sx={{
+                  contrastText: "blue"
+                }}
+                onChange={updateTodoValue}
+                value={todoValue}
               />
               {/* full width prop essentially
               extends the textfield to the end of the grid */}
