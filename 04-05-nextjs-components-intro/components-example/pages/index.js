@@ -28,7 +28,7 @@ export default function Home() {
       >
         <main className={styles.main}>
           <Hello />
-          <ComponentWrapper>
+          <ComponentWrapper textColor="pink">
             <NewConcept concept="how to import components" />
             <NewConcept concept="how to pass and use props" />
             <NewConcept concept="how to wrap components inside each other" />
