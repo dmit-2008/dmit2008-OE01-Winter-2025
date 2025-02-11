@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 // our own imports
 import Hello from '@/components/Hello'
 import NewConcept from '@/components/NewConcept'
+import ComponentWrapper from '@/components/ComponentWrapper'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +28,11 @@ export default function Home() {
       >
         <main className={styles.main}>
           <Hello />
-          <NewConcept concept="how to import components" />
-          <NewConcept concept="how to pass and use props" />
-          <NewConcept concept="how to wrap components inside each other" />        
+          <ComponentWrapper>
+            <NewConcept concept="how to import components" />
+            <NewConcept concept="how to pass and use props" />
+            <NewConcept concept="how to wrap components inside each other" />
+          </ComponentWrapper>
         </main>
       </div>
     </>
