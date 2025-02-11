@@ -13,8 +13,8 @@ const SIMPSON_CHARACTERS = [
 
 export default function SimpsonsCharacters() {
     return <ul>
-        {SIMPSON_CHARACTERS.map((character) => {
-            return <li>{character}</li>
+        {SIMPSON_CHARACTERS.map((character, index) => {
+            return <li key={index}>{character}</li>
         })}
     </ul>
 }
