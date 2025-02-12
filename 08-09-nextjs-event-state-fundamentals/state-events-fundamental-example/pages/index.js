@@ -55,6 +55,8 @@ export default function Home() {
     console.log("Submitted")
     console.log(`the value is ${todoValue}`)
 
+    // we'll do some validation
+
     // I'm going to make a copy of the todo list
     // with the new value and then set that list.
     const tempTodoList = [todoValue, ...todoList]
