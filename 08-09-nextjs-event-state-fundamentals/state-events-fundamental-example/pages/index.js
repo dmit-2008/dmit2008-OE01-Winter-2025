@@ -36,6 +36,8 @@ export default function Home() {
   // as the default value.
   // add the new todo in the form.
 
+  // let's add this stateful
+  const [todoList, setTodoList] = useState(SAMPLE_TODOS)
 
   // create a stateful value and hook it up
   // to the text field
@@ -49,11 +51,14 @@ export default function Home() {
   const submitHandler = (event) => {
     // prevent the form from submitting.
     event.preventDefault()
-
     // let's take a look at hte todovalue
     console.log("Submitted")
     console.log(`the value is ${todoValue}`)
 
+    // I'm going to make a copy of the todo list
+    // with the new value and then set that list.
+    const tempTodoList = [todoValue, ...todoList]
+    console.log(tempTodoList)
     // we're going to reset the value of our
     // todoValue
     setTodoValue("")
@@ -105,9 +110,15 @@ export default function Home() {
             <Grid size={12}>
               {/* make a list from mui */}
               <List>
-                { SAMPLE_TODOS.map((todo, index)=> {
+                {/* we're going to change SAMPLE_TODOS
+                to our state value todoList */}
+                { todoList.map((todo, index)=> {
                   // I need to return a single
                   // jsx node.
+                  // note the console.log is for
+                  // learning purposes only and should be
+                  // removed when doing an assignment or code
+                  // (no console.logs in your jsx.)
                   console.log(`my todo here: ${todo}`)
                   // I'm using the todo in the list
                   // item because it exists.
