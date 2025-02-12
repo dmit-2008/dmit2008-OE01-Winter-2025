@@ -83,6 +83,7 @@ export default function Home() {
 
   const deleteItemHandler = (index) => {
     console.log("deleteing item "+ index)
+    // perform a delete with your state knowledge.
   }
 
   return (
