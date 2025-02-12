@@ -59,6 +59,9 @@ export default function Home() {
     // with the new value and then set that list.
     const tempTodoList = [todoValue, ...todoList]
     console.log(tempTodoList)
+    // let's set the state and you'll see the rerender
+    // the entire list
+    setTodoList(tempTodoList)
     // we're going to reset the value of our
     // todoValue
     setTodoValue("")
@@ -119,7 +122,7 @@ export default function Home() {
                   // learning purposes only and should be
                   // removed when doing an assignment or code
                   // (no console.logs in your jsx.)
-                  console.log(`my todo here: ${todo}`)
+                  // console.log(`my todo here: ${todo}`)
                   // I'm using the todo in the list
                   // item because it exists.
                   return <ListItem key={index}>
