@@ -4,6 +4,10 @@ import {useState} from "react"
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid2';
+// all of the list imports we'll need for the list.
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import TextField from '@mui/material/TextField';
 
 import Navbar from "@/components/Navbar";
@@ -18,6 +22,20 @@ import Navbar from "@/components/Navbar";
 
 export default function Home() {
   // I want you to do two things.
+
+  // I want you to find a list in MUI
+  // and I want you to list all of the SAMPLE_TODOS
+  // display the text, and add a divider from mui.
+  const SAMPLE_TODOS = [
+    "explain more about state",
+    "get annoyed brightspace",
+    "complain to students about my qualms",
+    "tell them about meetups",
+  ]
+  // make the list stateful using SAMPLE_TODOS
+  // as the default value.
+  // add the new todo in the form.
+
 
   // create a stateful value and hook it up
   // to the text field
@@ -35,6 +53,10 @@ export default function Home() {
     // let's take a look at hte todovalue
     console.log("Submitted")
     console.log(`the value is ${todoValue}`)
+
+    // we're going to reset the value of our
+    // todoValue
+    setTodoValue("")
   }
 
 
@@ -58,7 +80,7 @@ export default function Home() {
               with the stateful of todoValue */}
               <TextField
                 variant="outlined"
-                label="The thing todo"
+                label="Enter new todo"
                 fullWidth
                 sx={{
                   contrastText: "blue"
@@ -79,7 +101,25 @@ export default function Home() {
                 Add Todo
               </Button>
             </Grid>
-
+            {/* Create our list! (the full row) */}
+            <Grid size={12}>
+              {/* make a list from mui */}
+              <List>
+                { SAMPLE_TODOS.map((todo, index)=> {
+                  // I need to return a single
+                  // jsx node.
+                  console.log(`my todo here: ${todo}`)
+                  // I'm using the todo in the list
+                  // item because it exists.
+                  return <ListItem key={index}>
+                    <ListItemText
+                      primary={todo}
+                      secondary={`index: ${index}`}
+                    />
+                  </ListItem>
+                })}
+              </List>
+            </Grid>
           </Grid>
         </form>
       </Container>
