@@ -1,9 +1,14 @@
 // to use state in react I need to import it first
-import {useState} from "react"
+import {useState, Fragment} from "react"
 
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+// divide items in the list
+import Divider from '@mui/material/Divider';
+
 import Grid from '@mui/material/Grid2';
+//
+import IconButton from '@mui/material/IconButton';
 // all of the list imports we'll need for the list.
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -11,6 +16,10 @@ import ListItemText from '@mui/material/ListItemText';
 import TextField from '@mui/material/TextField';
 
 import Navbar from "@/components/Navbar";
+
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Icon } from "@mui/material";
+
 
 // make a form
 // that use a text field
@@ -130,14 +139,24 @@ export default function Home() {
                   // let's create a delete button.
                   // go take at mui see if you can
                   // create this button.
-                  return <ListItem key={index}
-
-                  >
-                    <ListItemText
-                      primary={todo}
-                      secondary={`index: ${index}`}
-                    />
-                  </ListItem>
+                  return <Fragment key={index}>
+                    {/* a fragment is like a "ghost" jsx node
+                    it's there so that you don't have to render a div
+                      */}
+                    <ListItem
+                      secondaryAction={
+                        <IconButton edge="end">
+                          <DeleteIcon />
+                        </IconButton>
+                      }
+                    >
+                      <ListItemText
+                        primary={todo}
+                        secondary={`index: ${index}`}
+                      />
+                    </ListItem>
+                    <Divider />
+                  </Fragment>
                 })}
               </List>
             </Grid>
