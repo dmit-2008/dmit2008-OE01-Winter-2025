@@ -77,6 +77,13 @@ export default function Home() {
     setTodoValue("")
   }
 
+  // make a one line function later on
+  // in the jsx that uses the index
+  // and passes it into the delete item handler
+
+  const deleteItemHandler = (index) => {
+    console.log("deleteing item "+ index)
+  }
 
   return (
     <div>
@@ -145,7 +152,13 @@ export default function Home() {
                     */}
                     <ListItem
                       secondaryAction={
-                        <IconButton edge="end">
+                        <IconButton
+                          edge="end"
+                          onClick={() => {deleteItemHandler(index)}}
+                        >
+                          {/* above i'm using a technique to pass in
+                          the existing index into a handler without
+                          directly calling it, because it's in a function */}
                           <DeleteIcon />
                         </IconButton>
                       }
