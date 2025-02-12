@@ -127,7 +127,12 @@ export default function Home() {
                   // console.log(`my todo here: ${todo}`)
                   // I'm using the todo in the list
                   // item because it exists.
-                  return <ListItem key={index}>
+                  // let's create a delete button.
+                  // go take at mui see if you can
+                  // create this button.
+                  return <ListItem key={index}
+
+                  >
                     <ListItemText
                       primary={todo}
                       secondary={`index: ${index}`}
