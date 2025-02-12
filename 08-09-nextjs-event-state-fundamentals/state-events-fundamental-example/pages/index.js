@@ -18,7 +18,6 @@ import TextField from '@mui/material/TextField';
 import Navbar from "@/components/Navbar";
 
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Icon } from "@mui/material";
 
 
 // make a form
@@ -140,9 +139,10 @@ export default function Home() {
                   // go take at mui see if you can
                   // create this button.
                   return <Fragment key={index}>
-                    {/* a fragment is like a "ghost" jsx node
-                    it's there so that you don't have to render a div
-                      */}
+                    {/*
+                      a fragment is like a "ghost" jsx node
+                      it's there so that you don't have to render a div
+                    */}
                     <ListItem
                       secondaryAction={
                         <IconButton edge="end">
