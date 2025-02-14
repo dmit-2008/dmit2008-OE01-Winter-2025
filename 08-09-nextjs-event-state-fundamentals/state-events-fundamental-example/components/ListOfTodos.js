@@ -7,17 +7,10 @@
 // export and use this.
 
 // import fragment
-import { Fragment } from 'react';
-
-import IconButton from '@mui/material/IconButton';
-import Divider from '@mui/material/Divider';
 // we need to get all of the mui/react imports
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 
-import DeleteIcon from '@mui/icons-material/Delete';
-
+import TodoListItem from './TodoListItem';
 // let's create our component here.
 
 // as props we're passing down the stateful value of
@@ -41,32 +34,14 @@ export default function ListOfTodos({todoList, deleteItemHandler}) {
       // let's create a delete button.
       // go take at mui see if you can
       // create this button.
-      return <Fragment key={index}>
-        {/*
-          a fragment is like a "ghost" jsx node
-          it's there so that you don't have to render a div
-          most times fragments are written as <> jsx in here </>
-        */}
-        <ListItem
-          secondaryAction={
-            <IconButton
-              edge="end"
-              onClick={() => {deleteItemHandler(index)}}
-            >
-              {/* above i'm using a technique to pass in
-              the existing index into a handler without
-              directly calling it, because it's in a function */}
-              <DeleteIcon />
-            </IconButton>
-          }
-        >
-          <ListItemText
-            primary={todo}
-            secondary={`index: ${index}`}
-          />
-        </ListItem>
-        <Divider />
-      </Fragment>
+
+      // return my newly created TodoList Item
+      return <TodoListItem
+        key={index}
+        todo={todo}
+        index={index}
+        deleteItemHandler={deleteItemHandler}
+      />
     })}
   </List>
 }
