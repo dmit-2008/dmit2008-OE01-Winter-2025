@@ -1,8 +1,6 @@
-import { MOVIE_LIST } from '../utils/movies'
+import {useState} from 'react'
 
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
@@ -15,9 +13,17 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
+import { MOVIE_LIST } from '../utils/movies'
+
 export default function Home() {
   // i want you create the stateful values in the form
   // and make the text field controlled.
+  // As a note I try to put all of my
+  // react hook calls at the top of the
+  // component definition.
+  const [search, setSearch] = useState("")
+
+
 
   return (
     <div>
@@ -39,12 +45,18 @@ export default function Home() {
           <form style={{width: '100%'}}>
             <Grid container spacing={2}>
               <Grid item xs={6}>
+                {/* make this controlled
+                let's make a online function
+                to update the state */}
                 <TextField
                   id="search-field"
                   label="search..."
                   variant="standard"
                   sx={{width: '100%'}}
-
+                  value={search}
+                  onChange={(event)=> {
+                    setSearch(event.target.value)
+                  }}
                 />
               </Grid>
               <Grid item xs={4}>
