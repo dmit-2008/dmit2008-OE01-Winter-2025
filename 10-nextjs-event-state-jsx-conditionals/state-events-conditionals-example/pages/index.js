@@ -37,8 +37,6 @@ export default function Home() {
         - filtered
   */
 
-
-
   return (
     <div>
       <Head>
