@@ -84,6 +84,12 @@ export default function Home() {
   const deleteItemHandler = (index) => {
     console.log("deleteing item "+ index)
     // perform a delete with your state knowledge.
+    // i'm going to create a copy of the array
+    let tempTodoList = [...todoList]
+    // take a look at the splice docs.
+    tempTodoList.splice(index, 1)
+    // set the state
+    setTodoList(tempTodoList)
   }
 
   return (
@@ -150,6 +156,7 @@ export default function Home() {
                     {/*
                       a fragment is like a "ghost" jsx node
                       it's there so that you don't have to render a div
+                      most times fragments are written as <> jsx in here </>
                     */}
                     <ListItem
                       secondaryAction={
