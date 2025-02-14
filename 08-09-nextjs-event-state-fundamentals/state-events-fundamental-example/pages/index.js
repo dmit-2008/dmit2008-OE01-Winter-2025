@@ -1,5 +1,5 @@
 // to use state in react I need to import it first
-import {useState, Fragment} from "react"
+import {useState} from "react"
 
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 
 
 // import my new list component
+import AddTodoForm from "@/components/AddTodoForm";
 import ListOfTodos from "@/components/ListOfTodos";
 import Navbar from "@/components/Navbar";
 
@@ -44,32 +45,8 @@ export default function Home() {
   // create a stateful value and hook it up
   // to the text field
   // below take a look at the TextFieldComponent
-  const [todoValue, setTodoValue] = useState("")
 
-  const updateTodoValue = (event) => {
-    setTodoValue(event.target.value)
-  }
-  // hook into the submit on the form
-  const submitHandler = (event) => {
-    // prevent the form from submitting.
-    event.preventDefault()
-    // let's take a look at hte todovalue
-    console.log("Submitted")
-    console.log(`the value is ${todoValue}`)
 
-    // we'll do some validation
-
-    // I'm going to make a copy of the todo list
-    // with the new value and then set that list.
-    const tempTodoList = [todoValue, ...todoList]
-    console.log(tempTodoList)
-    // let's set the state and you'll see the rerender
-    // the entire list
-    setTodoList(tempTodoList)
-    // we're going to reset the value of our
-    // todoValue
-    setTodoValue("")
-  }
 
   // make a one line function later on
   // in the jsx that uses the index
@@ -94,48 +71,22 @@ export default function Home() {
         component="main"
         sx={{mt: 10}}
       >
-        {/* listen to the submit event. */}
-        <form
-          onSubmit={submitHandler}
-        >
           {/* refer to https://mui.com/material-ui/react-grid2/ */}
           <Grid container spacing={2}>
             {/* one for the textfield */}
-            <Grid size={10}>
-              {/* make our text field "controlled"
-              with the stateful of todoValue */}
-              <TextField
-                variant="outlined"
-                label="Enter new todo"
-                fullWidth
-                sx={{
-                  contrastText: "blue"
-                }}
-                onChange={updateTodoValue}
-                value={todoValue}
-              />
-              {/* full width prop essentially
-              extends the textfield to the end of the grid */}
-            </Grid>
-            {/* one for the button */}
-            <Grid size={2}>
-              <Button
-                type="submit"
-                variant="contained"
-                size="large"
-              >
-                Add Todo
-              </Button>
-            </Grid>
-            {/* Create our list! (the full row) */}
-            <Grid size={12}>
-              <ListOfTodos
-                todoList={todoList}
-                deleteItemHandler={deleteItemHandler}
-              />
-            </Grid>
+            {/* listen to the submit event. */}
+          <AddTodoForm
+            setTodoList={setTodoList}
+            todoList={todoList}
+          />
+          {/* put the grid in the list of todos */}
+          <Grid size={12}>
+            <ListOfTodos
+              todoList={todoList}
+              deleteItemHandler={deleteItemHandler}
+            />
           </Grid>
-        </form>
+        </Grid>
       </Container>
     </div>
   );
