@@ -9,6 +9,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+// our own components
+import ComponentLibrariesList from '@/components/ComponentLibrariesList'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +47,9 @@ export default function Home() {
               <Col>Col 2 of 4</Col>
               <Col>Col 3 of 4</Col>
               <Col>Col 4 of 4</Col>
+            </Row>
+            <Row>
+              <ComponentLibrariesList />
             </Row>
           </Container>
         </main>
