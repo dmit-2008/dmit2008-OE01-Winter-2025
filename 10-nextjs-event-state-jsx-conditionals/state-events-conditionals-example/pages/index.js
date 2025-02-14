@@ -16,6 +16,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
 export default function Home() {
+  // i want you create the stateful values in the form
+  // and make the text field controlled.
+
   return (
     <div>
       <Head>
@@ -41,7 +44,7 @@ export default function Home() {
                   label="search..."
                   variant="standard"
                   sx={{width: '100%'}}
-                  
+
                 />
               </Grid>
               <Grid item xs={4}>
@@ -50,7 +53,7 @@ export default function Home() {
                   label="year"
                   variant="standard"
                   sx={{width: '100%'}}
-                 
+
                 />
               </Grid>
               <Grid item xs={2}>
