@@ -28,6 +28,17 @@ export default function Home() {
   // so that it can change.
   const [movies, setMovies] = useState(MOVIE_LIST)
 
+  /*
+    to filter movies we'll need:
+    - search value
+    - handler for the form submission
+    - temporary array
+      - set movies
+        - filtered
+  */
+
+
+
   return (
     <div>
       <Head>
@@ -86,7 +97,7 @@ export default function Home() {
             </Grid>
           </form>
           <List sx={{width: `100%`}}>
-          { MOVIE_LIST.map((movieData, index)=> {
+          { movies.map((movieData, index)=> {
               return <ListItem key={index}>
                 <ListItemText>
                   <Typography variant="p" component="div">
