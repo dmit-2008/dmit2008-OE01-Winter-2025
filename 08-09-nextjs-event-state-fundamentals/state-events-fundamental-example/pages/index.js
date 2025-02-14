@@ -4,18 +4,9 @@ import {useState, Fragment} from "react"
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 // divide items in the list
-import Divider from '@mui/material/Divider';
-
 import Grid from '@mui/material/Grid2';
-//
-import IconButton from '@mui/material/IconButton';
-// all of the list imports we'll need for the list.
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import TextField from '@mui/material/TextField';
 
-import DeleteIcon from '@mui/icons-material/Delete';
 
 // import my new list component
 import ListOfTodos from "@/components/ListOfTodos";
