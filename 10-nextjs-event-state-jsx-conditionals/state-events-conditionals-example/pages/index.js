@@ -22,7 +22,7 @@ export default function Home() {
   // react hook calls at the top of the
   // component definition.
   const [search, setSearch] = useState("")
-
+  const [year, setYear] = useState("")
 
 
   return (
@@ -65,7 +65,10 @@ export default function Home() {
                   label="year"
                   variant="standard"
                   sx={{width: '100%'}}
-
+                  value={year}
+                  onChange={(event)=> {
+                    setYear(event.target.value)
+                  }}
                 />
               </Grid>
               <Grid item xs={2}>
