@@ -42,35 +42,37 @@ export default function AddTodoForm({
     // todoValue
     setTodoValue("")
   }
-  return <form
-    onSubmit={submitHandler}
-  >
-    <Grid size={10}>
-      {/* make our text field "controlled"
-      with the stateful of todoValue */}
-      <TextField
-        variant="outlined"
-        label="Enter new todo"
-        fullWidth
-        sx={{
-          contrastText: "blue"
-        }}
-        onChange={updateTodoValue}
-        value={todoValue}
-      />
-      {/* full width prop essentially
-      extends the textfield to the end of the grid */}
-    </Grid>
-    {/* one for the button */}
-    <Grid size={2}>
-      <Button
-        type="submit"
-        variant="contained"
-        size="large"
-      >
-        Add Todo
-      </Button>
-    </Grid>
+  return <Grid container spacing={2}>
+    <form
+      onSubmit={submitHandler}
+    >
+      <Grid size={10}>
+        {/* make our text field "controlled"
+        with the stateful of todoValue */}
+        <TextField
+          variant="outlined"
+          label="Enter new todo"
+          fullWidth
+          sx={{
+            contrastText: "blue"
+          }}
+          onChange={updateTodoValue}
+          value={todoValue}
+        />
+        {/* full width prop essentially
+        extends the textfield to the end of the grid */}
+      </Grid>
+      {/* one for the button */}
+      <Grid size={2}>
+        <Button
+          type="submit"
+          variant="contained"
+          size="large"
+        >
+          Add Todo
+        </Button>
+      </Grid>
 
-  </form>
+    </form>
+  </Grid>
 }
