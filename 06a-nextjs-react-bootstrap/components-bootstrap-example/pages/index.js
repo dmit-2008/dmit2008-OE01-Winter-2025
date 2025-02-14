@@ -3,6 +3,13 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
+
+// bootstrap components
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,6 +30,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <main className={styles.main}>
+          <Container>
+            <h1>An h1 just inside the Container component</h1>
+            <Row>
+              Here's some text just inside Row 1.
+              <Col>Col 1 of 4</Col>
+              <Col>Col 2 of 4</Col>
+              <Col>Col 3 of 4</Col>
+              <Col>Col 4 of 4</Col>
+            </Row>
+            <Row>
+              Here's some text just inside Row 2.
+              <Col>Col 1 of 4</Col>
+              <Col>Col 2 of 4</Col>
+              <Col>Col 3 of 4</Col>
+              <Col>Col 4 of 4</Col>
+            </Row>
+          </Container>
         </main>
     </>
   );
