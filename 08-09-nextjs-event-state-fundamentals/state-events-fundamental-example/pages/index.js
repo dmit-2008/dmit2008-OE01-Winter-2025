@@ -72,7 +72,7 @@ export default function Home() {
         sx={{mt: 10}}
       >
           {/* refer to https://mui.com/material-ui/react-grid2/ */}
-          <Grid container spacing={2}>
+
             {/* one for the textfield */}
             {/* listen to the submit event. */}
           <AddTodoForm
@@ -86,7 +86,6 @@ export default function Home() {
               deleteItemHandler={deleteItemHandler}
             />
           </Grid>
-        </Grid>
       </Container>
     </div>
   );
