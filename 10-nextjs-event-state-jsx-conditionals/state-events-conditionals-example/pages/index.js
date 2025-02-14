@@ -24,6 +24,9 @@ export default function Home() {
   const [search, setSearch] = useState("")
   const [year, setYear] = useState("")
 
+  // we're going to make this stateful
+  // so that it can change.
+  const [movies, setMovies] = useState(MOVIE_LIST)
 
   return (
     <div>
