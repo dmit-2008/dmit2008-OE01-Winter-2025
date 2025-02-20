@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import PetsIcon from '@mui/icons-material/Pets';
 
 
 export default function Home() {
@@ -24,7 +25,8 @@ export default function Home() {
                 MUI Example
               </Typography>
               <Typography variant="body1" component="p" color="secondary">
-                You can perhaps see why this is a popular library.
+                You can perhaps see why this is a popular domestic animal.
+                <PetsIcon />
               </Typography>
             </Box>
           </Container>
