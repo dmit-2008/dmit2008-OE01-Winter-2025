@@ -1,6 +1,11 @@
 import { createTheme, createMuiTheme } from '@mui/material'
 
 const themeOptions = {
+  typography: {
+    h2: {
+      fontFamily: 'Lato',
+    },
+  },
   palette: {
     primary: {
       light: '#757ce8',
