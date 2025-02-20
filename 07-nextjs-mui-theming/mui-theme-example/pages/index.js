@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 
 export default function Home() {
   return (
+    <>
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -30,5 +31,6 @@ export default function Home() {
 
         </main>
       </div>
+    </>
   )
 }
