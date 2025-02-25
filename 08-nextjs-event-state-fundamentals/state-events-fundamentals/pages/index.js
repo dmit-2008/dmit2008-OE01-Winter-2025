@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
@@ -6,7 +8,15 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 
+
 export default function Home() {
+
+  const [todoValue, setTodoValue] = useState("")
+
+  const onTodoTextChange = (event) => {
+    console.log(event.target.value)
+  }
+
   return (
     <>
       <Head>
@@ -35,6 +45,7 @@ export default function Home() {
                 sx={{
                   contrastText: "blue"
                 }}
+                onChange={onTodoTextChange}
                >
                static text
                </TextField>
