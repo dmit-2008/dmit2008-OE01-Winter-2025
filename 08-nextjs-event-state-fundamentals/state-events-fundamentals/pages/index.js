@@ -1,8 +1,10 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
 
 export default function Home() {
   return (
@@ -18,13 +20,38 @@ export default function Home() {
       >
         <main className={styles.main}>
 
-        <Container
-          maxWidth="md"
-          component="main"
-          sx={{ mt: 10 }}
-        >
-          
-        </Container>
+          <Container
+            maxWidth="md"
+            component="main"
+            sx={{ mt: 10 }}
+          >
+            <Grid container spacing={2}>
+
+              <Grid size={10}>
+               <TextField
+                variant="outlined"
+                label="Todo Item"
+                fullWidth
+                sx={{
+                  contrastText: "blue"
+                }}
+               >
+               static text
+               </TextField>
+              </Grid>
+
+              <Grid size={2}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                >
+                Add Todo Item
+                </Button>
+              </Grid>
+
+            </Grid>
+          </Container>
 
         </main>
       </div>
