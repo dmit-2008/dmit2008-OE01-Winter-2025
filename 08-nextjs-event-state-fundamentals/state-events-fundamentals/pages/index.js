@@ -13,6 +13,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
+import ListInput from '@/components/ListInput';
+import ListSubmitButton from '@/components/ListSubmitButton';
+
 
 export default function Home() {
 
@@ -56,30 +59,16 @@ export default function Home() {
             >
               <Grid container spacing={2}>
 
-                <Grid size={10}>
-                 <TextField
-                  variant="outlined"
-                  label="Todo Item"
-                  fullWidth
-                  sx={{
-                    contrastText: "blue"
-                  }}
-                  onChange={onTodoTextChange}
-                  value={textValue}
-                 >
-                 </TextField>
-                </Grid>
+                <ListInput
+                  changeHandler={onTodoTextChange}
+                  inputValue={textValue}
+                />
 
-                <Grid size={2}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    size="large"
-                    onClick={onAddTodoClick}
-                  >
-                  Add Todo Item
-                  </Button>
-                </Grid>
+
+                <ListSubmitButton
+                  clickHandler={onAddTodoClick}
+                />
+
 
                 <Grid item xs={12}>
                   <List sx={{ width: "100%" }}>
