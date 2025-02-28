@@ -11,10 +11,10 @@ import TextField from '@mui/material/TextField';
 
 export default function Home() {
 
-  const [todoValue, setTodoValue] = useState("")
+  const [someValue, setSomeValue] = useState("ok how about this")
 
   const onTodoTextChange = (event) => {
-    console.log(event.target.value)
+    setSomeValue(event.target.value)
   }
 
   return (
@@ -46,6 +46,7 @@ export default function Home() {
                   contrastText: "blue"
                 }}
                 onChange={onTodoTextChange}
+                value={someValue}
                >
                static text
                </TextField>
