@@ -17,6 +17,14 @@ export default function Home() {
     setSomeValue(event.target.value)
   }
 
+  const onAddTodoClick = (event) => {
+  }
+
+  const submitHandler = (event) => {
+    event.preventDefault()
+    console.log(`The submitted value is — ${someValue}`)
+  }
+
   return (
     <>
       <Head>
@@ -29,42 +37,44 @@ export default function Home() {
         className={`${styles.page}`}
       >
         <main className={styles.main}>
-
-          <Container
-            maxWidth="md"
-            component="main"
-            sx={{ mt: 10 }}
+          <form
+            onSubmit={submitHandler}
           >
-            <Grid container spacing={2}>
+            <Container
+              maxWidth="md"
+              component="main"
+              sx={{ mt: 10 }}
+            >
+              <Grid container spacing={2}>
 
-              <Grid size={10}>
-               <TextField
-                variant="outlined"
-                label="Todo Item"
-                fullWidth
-                sx={{
-                  contrastText: "blue"
-                }}
-                onChange={onTodoTextChange}
-                value={someValue}
-               >
-               static text
-               </TextField>
+                <Grid size={10}>
+                 <TextField
+                  variant="outlined"
+                  label="Todo Item"
+                  fullWidth
+                  sx={{
+                    contrastText: "blue"
+                  }}
+                  onChange={onTodoTextChange}
+                  value={someValue}
+                 >
+                 </TextField>
+                </Grid>
+
+                <Grid size={2}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    size="large"
+                    onClick={onAddTodoClick}
+                  >
+                  Add Todo Item
+                  </Button>
+                </Grid>
+
               </Grid>
-
-              <Grid size={2}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  size="large"
-                >
-                Add Todo Item
-                </Button>
-              </Grid>
-
-            </Grid>
-          </Container>
-
+            </Container>
+          </form>
         </main>
       </div>
     </>
