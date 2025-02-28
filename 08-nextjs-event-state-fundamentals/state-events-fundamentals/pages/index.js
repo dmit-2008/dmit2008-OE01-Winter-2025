@@ -11,18 +11,21 @@ import TextField from '@mui/material/TextField';
 
 export default function Home() {
 
-  const [someValue, setSomeValue] = useState("ok how about this")
+  const [textValue, setTextValue] = useState("")
+  const [allTodos, setAllTodos] = useState([])
 
   const onTodoTextChange = (event) => {
-    setSomeValue(event.target.value)
+    setTextValue(event.target.value)
   }
 
-  const onAddTodoClick = (event) => {
+  const onAddTodoClick = () => {
+   const newAllTodoList = [...allTodos, textValue]
+   console.log(newAllTodoList)
+   setAllTodos(newAllTodoList)
   }
 
   const submitHandler = (event) => {
     event.preventDefault()
-    console.log(`The submitted value is — ${someValue}`)
   }
 
   return (
@@ -56,7 +59,7 @@ export default function Home() {
                     contrastText: "blue"
                   }}
                   onChange={onTodoTextChange}
-                  value={someValue}
+                  value={textValue}
                  >
                  </TextField>
                 </Grid>
