@@ -7,6 +7,11 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 
 
 export default function Home() {
@@ -22,6 +27,7 @@ export default function Home() {
    const newAllTodoList = [...allTodos, textValue]
    console.log(newAllTodoList)
    setAllTodos(newAllTodoList)
+   setTextValue("")
   }
 
   const submitHandler = (event) => {
@@ -73,6 +79,20 @@ export default function Home() {
                   >
                   Add Todo Item
                   </Button>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <List sx={{ width: "100%" }}>
+                    {allTodos.map((todoItem, index) => {
+                      return <ListItem key={index}>
+                        <ListItemText>
+                          <Typography variant="p" component="div">
+                            {todoItem}
+                          </Typography>
+                        </ListItemText>
+                      </ListItem>
+                    })}
+                  </List>
                 </Grid>
 
               </Grid>
