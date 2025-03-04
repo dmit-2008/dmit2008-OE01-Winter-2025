@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
 import Head from 'next/head'
 
@@ -28,6 +28,12 @@ export default function Home() {
   // so that it can change.
   const [movies, setMovies] = useState(MOVIE_LIST)
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(`year: ${year}`)
+    console.log(`search: ${search}`)
+  }
+
   /*
     to filter movies we'll need:
     - search value
@@ -54,7 +60,10 @@ export default function Home() {
           <Typography variant="h2" component="h2" style={{textAlign: "center"}}>
             Movies
           </Typography>
-          <form style={{width: '100%'}}>
+          <form
+            style={{width: '100%'}}
+            onSubmit={handleSubmit}
+          >
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 {/* make this controlled
@@ -62,13 +71,15 @@ export default function Home() {
                 to update the state */}
                 <TextField
                   id="search-field"
-                  label="search..."
+                  label="title..."
                   variant="standard"
                   sx={{width: '100%'}}
                   value={search}
-                  onChange={(event)=> {
-                    setSearch(event.target.value)
-                  }}
+                  onChange={
+                    (event) => {
+                      setSearch(event.target.value)
+                    }
+                  }
                 />
               </Grid>
               <Grid item xs={4}>
@@ -77,6 +88,7 @@ export default function Home() {
                   label="year"
                   variant="standard"
                   sx={{width: '100%'}}
+                  type="number"
                   value={year}
                   onChange={(event)=> {
                     setYear(event.target.value)
