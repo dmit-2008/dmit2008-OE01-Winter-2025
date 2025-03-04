@@ -15,6 +15,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { MOVIE_LIST } from '../utils/movies'
 
+
 export default function Home() {
   // i want you create the stateful values in the form
   // and make the text field controlled.
@@ -30,18 +31,34 @@ export default function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(`year: ${year}`)
-    console.log(`search: ${search}`)
+    filterMovies()
+
   }
 
-  /*
-    to filter movies we'll need:
-    - search value
-    - handler for the form submission
-    - temporary array
-      - set movies
-        - filtered
-  */
+  const filterMovies = () => {
+    // make a copy of the movie list that we'll mutate
+    let filteredMovieList = [...MOVIE_LIST]
+    // filter for any values for {search} that are substrings for movie titles
+    if (search.trim() !== "") {
+      filteredMovieList = filteredMovieList.filter(
+        (movieData) => {
+          return movieData.name.toLowerCase().includes(
+            search.trim().toLowerCase()
+          )
+        }
+      )
+    }
+    // filter for any movie years that match our input, if our input is a valid int
+    if (year.trim() !== "") {
+      filteredMovieList = filteredMovieList.filter(
+        (movieData) => {
+          return movieData.year === parseInt(year.trim())
+        }
+      )
+    }
+    setMovies(filteredMovieList)
+  }
+
 
   return (
     <div>
