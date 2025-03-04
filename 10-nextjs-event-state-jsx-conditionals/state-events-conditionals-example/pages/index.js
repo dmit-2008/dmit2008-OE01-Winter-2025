@@ -134,6 +134,15 @@ export default function Home() {
               </ListItem>
             })
           }
+          { movies.length === 0 &&
+            <ListItem>
+              <ListItemText>
+               <Typography variant="p" component="div">
+                No results please search again.
+               </Typography>
+              </ListItemText>
+            </ListItem>
+          }
           </List>
         </Container>
       </main>
