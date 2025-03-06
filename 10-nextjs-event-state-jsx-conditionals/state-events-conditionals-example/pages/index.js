@@ -32,12 +32,16 @@ export default function Home() {
   const handleSubmit = (event) => {
     event.preventDefault()
     filterMovies()
+    validateInputs()
 
+  }
+
+  const validateInputs = () => {
+    // write your value conditions here, e.g. year must be a number
   }
 
   const filterMovies = () => {
     // make a copy of the movie list that we'll mutate
-    let filteredMovieList = [...MOVIE_LIST]
     // filter for any values for {search} that are substrings for movie titles
     if (search.trim() !== "") {
       filteredMovieList = filteredMovieList.filter(
@@ -105,7 +109,7 @@ export default function Home() {
                   label="year"
                   variant="standard"
                   sx={{width: '100%'}}
-                  type="number"
+                  type="date"
                   value={year}
                   onChange={(event)=> {
                     setYear(event.target.value)
