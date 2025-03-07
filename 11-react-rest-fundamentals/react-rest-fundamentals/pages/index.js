@@ -14,16 +14,23 @@ import Typography from '@mui/material/Typography';
 
 export default function Home() {
 
+  const RANDOM_QUOTE_URL = 'https://api.quotable.io/random'
+
   const [quoteData, setQuoteData] = useState({
     quote: "Quote here.",
     author: "Author here"
   })
 
   const handleClick = () => {
-    setQuoteData({
-      quote: "I'm starting to enjoy JavaScript, but don't tell anyone",
-      author: "Myself"
-    })
+    fetch(RANDOM_QUOTE_URL)
+      .then((response) => {
+        return response.json()
+      }).then((data) => {
+        setQuoteData({
+          quote: data.content,
+          author: data.author
+        })
+      })
   }
 
   return (
