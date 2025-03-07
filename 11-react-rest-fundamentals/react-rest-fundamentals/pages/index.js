@@ -14,12 +14,17 @@ import Typography from '@mui/material/Typography';
 
 export default function Home() {
 
-  const [quoteData, setQuoteData] = useState(
-    {
-      quote: "Quote here.",
-      author: "Author here"
-    }
-  )
+  const [quoteData, setQuoteData] = useState({
+    quote: "Quote here.",
+    author: "Author here"
+  })
+
+  const handleClick = () => {
+    setQuoteData({
+      quote: "I'm starting to enjoy JavaScript, but don't tell anyone",
+      author: "Myself"
+    })
+  }
 
   return (
     <div>
@@ -63,6 +68,7 @@ export default function Home() {
             >
               <Button
                 variant="contained"
+                onClick={handleClick}
               >
                 Get New Quote
               </Button>
