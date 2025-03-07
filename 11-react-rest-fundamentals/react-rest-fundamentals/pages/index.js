@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Head from "next/head";
 
 import AppBar from '@mui/material/AppBar';
@@ -11,6 +13,14 @@ import Typography from '@mui/material/Typography';
 
 
 export default function Home() {
+
+  const [quoteData, setQuoteData] = useState(
+    {
+      quote: "Quote here.",
+      author: "Author here"
+    }
+  )
+
   return (
     <div>
 
@@ -32,7 +42,7 @@ export default function Home() {
             }}
           >
             <Typography variant="h5" align="center" color="text.primary" paragraph>
-              But for now, it's just a static quote.
+              {quoteData.quote}
             </Typography>
             <Typography
               component="h1"
@@ -41,7 +51,7 @@ export default function Home() {
               color="text.secondary"
               gutterBottom
             >
-              - Oliver Antoniu
+              - {quoteData.author}
             </Typography>
 
             <Box
