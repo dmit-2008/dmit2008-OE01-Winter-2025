@@ -1,13 +1,10 @@
 import Head from 'next/head'
 
 import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardContent from '@mui/material/CardContent';
+
 
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
@@ -17,7 +14,6 @@ import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 
-import IconButton from '@mui/material/IconButton';
 
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -26,14 +22,9 @@ import TextField from '@mui/material/TextField';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-import DeleteIcon from '@mui/icons-material/Delete';
 
-
-const MOCK_ADAPTATION_RATING = [{
-  'title': 'Fight Club',
-  'comment': 'Great movie and book',
-  'rating': 10
-}]
+// own components
+import AdaptationReviewCard from '@/components/AdaptationReviewCard';
 
 
 export default function Home() {
@@ -121,36 +112,11 @@ export default function Home() {
               py: 4,
             }}
           />
-          <Card
-            sx={{marginTop: 6}}
-          >
-            <CardHeader
-              avatar={
-                <Avatar sx={{ bgcolor: 'blue' }} aria-label="recipe">
-                  {MOCK_ADAPTATION_RATING[0].rating}
-                </Avatar>
-              }
-              action={
-                // adapatation is each review
-                // we want to use the
-                <IconButton
-                >
-                  <DeleteIcon />
-                </IconButton>
-              }
-              title={
-                <Typography variant="body2" color="text.secondary">
-                  {MOCK_ADAPTATION_RATING[0].title}
-                </Typography>
-              }
-
-            />
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                {MOCK_ADAPTATION_RATING[0].comment}
-              </Typography>
-            </CardContent>
-          </Card>
+          <AdaptationReviewCard
+            rating={10}
+            title="Fight Club"
+            comment="Pretty good fate for boring downtown skylines"
+          />
         </Container>
       </main>
     </div>
