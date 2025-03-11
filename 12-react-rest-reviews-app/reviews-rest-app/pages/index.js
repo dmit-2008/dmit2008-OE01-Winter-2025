@@ -29,6 +29,13 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
+const MOCK_ADAPTATION_RATING = [{
+  'title': 'Fight Club',
+  'comment': 'Great movie and book',
+  'rating': 10
+}]
+
+
 export default function Home() {
   return (
     <div>
@@ -120,7 +127,7 @@ export default function Home() {
             <CardHeader
               avatar={
                 <Avatar sx={{ bgcolor: 'blue' }} aria-label="recipe">
-                  3
+                  {MOCK_ADAPTATION_RATING[0].rating}
                 </Avatar>
               }
               action={
@@ -133,14 +140,14 @@ export default function Home() {
               }
               title={
                 <Typography variant="body2" color="text.secondary">
-                  Some Movie Title
+                  {MOCK_ADAPTATION_RATING[0].title}
                 </Typography>
               }
 
             />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
-                Some placeholder comment text.
+                {MOCK_ADAPTATION_RATING[0].comment}
               </Typography>
             </CardContent>
           </Card>
