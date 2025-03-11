@@ -10,7 +10,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 
 import Container from '@mui/material/Container';
-
+import Divider from '@mui/material/Divider';
 
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
@@ -100,8 +100,7 @@ export default function Home() {
           </form>
           <Box
             sx={{
-              pt: 2,
-              pb: 2,
+              py: 2,
             }}
           >
             <Button
@@ -110,36 +109,41 @@ export default function Home() {
               Load All Current Reviews
             </Button>
           </Box>
-            <Card
-              sx={{marginTop: 4}}
-            >
-              <CardHeader
-                avatar={
-                  <Avatar sx={{ bgcolor: 'blue' }} aria-label="recipe">
-                    10
-                  </Avatar>
-                }
-                action={
-                  // adapatation is each review
-                  // we want to use the
-                  <IconButton
-                  >
-                    <DeleteIcon />
-                  </IconButton>
-                }
-                title={
-                  <Typography variant="body2" color="text.secondary">
-                    Some Movie Title
-                  </Typography>
-                }
-
-              />
-              <CardContent>
+          <Divider
+            sx={{ 
+              py: 4,
+            }}
+          />
+          <Card
+            sx={{marginTop: 6}}
+          >
+            <CardHeader
+              avatar={
+                <Avatar sx={{ bgcolor: 'blue' }} aria-label="recipe">
+                  3
+                </Avatar>
+              }
+              action={
+                // adapatation is each review
+                // we want to use the
+                <IconButton
+                >
+                  <DeleteIcon />
+                </IconButton>
+              }
+              title={
                 <Typography variant="body2" color="text.secondary">
-                  Some placeholder comment text.
+                  Some Movie Title
                 </Typography>
-              </CardContent>
-            </Card>
+              }
+
+            />
+            <CardContent>
+              <Typography variant="body2" color="text.secondary">
+                Some placeholder comment text.
+              </Typography>
+            </CardContent>
+          </Card>
         </Container>
       </main>
     </div>
