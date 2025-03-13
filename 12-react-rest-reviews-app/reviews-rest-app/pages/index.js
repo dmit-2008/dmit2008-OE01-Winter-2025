@@ -1,10 +1,9 @@
+import { useState } from 'react'
 import Head from 'next/head'
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-
-
 
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
@@ -13,7 +12,6 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
-
 
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -27,7 +25,31 @@ import Typography from '@mui/material/Typography';
 import AdaptationReviewCard from '@/components/AdaptationReviewCard';
 
 
+const BASE_URL = "http://localhost:5000/reviews"
+
+
 export default function Home() {
+
+  const [reviews, setReviews] = useState([])
+
+  const [title, setTitle] = useState("")
+  const [comments, setComments] = useState("")
+
+  const loadAllReviewsButton = () => {
+    fetch(BASE_URL)
+      .then((response) => {
+        return response.json()
+      }).then((data) => {
+        setReviews(data)
+      })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log("submitted form!")
+  }
+
+
   return (
     <div>
       <Head>
@@ -45,6 +67,7 @@ export default function Home() {
       <main>
         <Container maxWidth="md">
           <form
+            onSubmit={handleSubmit}
           >
             <Grid container spacing={3}>
               <Grid item xs={12} sm={12}>
@@ -54,6 +77,8 @@ export default function Home() {
                   label="Adaptation Title"
                   fullWidth
                   variant="standard"
+                  value={title}
+                  onChange={(e) => {setTitle(e.target.value)}}
                 />
               </Grid>
               <Grid item xs={12} sm={12}>
@@ -103,6 +128,7 @@ export default function Home() {
           >
             <Button
               variant="contained"
+              onClick={loadAllReviewsButton}
             >
               Load All Current Reviews
             </Button>
@@ -112,11 +138,15 @@ export default function Home() {
               py: 4,
             }}
           />
-          <AdaptationReviewCard
-            rating={10}
-            title="Fight Club"
-            comment="Pretty good fate for boring downtown skylines"
-          />
+          {reviews.map((adaptation, index)=> {
+            return <AdaptationReviewCard
+              key={index}
+              rating={adaptation.rating}
+              title={adaptation.title}
+              comment={adaptation.comment}
+            />
+          })}
+
         </Container>
       </main>
     </div>

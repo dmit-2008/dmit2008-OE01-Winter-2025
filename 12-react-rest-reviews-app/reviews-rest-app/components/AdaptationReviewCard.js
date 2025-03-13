@@ -10,7 +10,8 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
-export default function AdaptationReviewCard(props) {
+export default function AdaptationReviewCard({rating, title, comment}) {
+
   return (
     <Card
       sx={{marginTop: 6}}
@@ -18,7 +19,7 @@ export default function AdaptationReviewCard(props) {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: 'blue' }} aria-label="recipe">
-            {props.rating}
+            {rating}
           </Avatar>
         }
         action={
@@ -29,14 +30,14 @@ export default function AdaptationReviewCard(props) {
         }
         title={
           <Typography variant="body2" color="text.secondary">
-            {props.title}
+            {title}
           </Typography>
         }
 
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {props.comment}
+          {comment}
         </Typography>
       </CardContent>
     </Card>
