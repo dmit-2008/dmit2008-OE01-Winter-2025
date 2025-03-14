@@ -34,6 +34,7 @@ export default function Home() {
 
   const [title, setTitle] = useState("")
   const [comments, setComments] = useState("")
+  const [rating, setRating] = useState(0)
 
   const loadAllReviewsButton = () => {
     fetch(BASE_URL)
@@ -46,7 +47,9 @@ export default function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log("submitted form!")
+    console.log(title)
+    console.log(comments)
+    console.log(rating)
   }
 
 
@@ -88,6 +91,8 @@ export default function Home() {
                   label="Comments"
                   fullWidth
                   variant="standard"
+                  value={comments}
+                  onChange={(e) => {setComments(e.target.value)}}
                 />
               </Grid>
               <Grid item xs={12} sm={12}>
@@ -97,6 +102,8 @@ export default function Home() {
                     row
                     aria-labelledby="adaptation-rating"
                     name="rating-buttons-group"
+                    value={rating}
+                    onChange={(e) => {setRating(e.target.value)}}
                   >
                     <FormControlLabel value="1" control={<Radio />} label="1" />
                     <FormControlLabel value="2" control={<Radio />} label="2" />
