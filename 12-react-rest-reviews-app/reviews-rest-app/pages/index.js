@@ -25,7 +25,7 @@ import Typography from '@mui/material/Typography';
 import AdaptationReviewCard from '@/components/AdaptationReviewCard';
 
 
-const BASE_URL = "http://localhost:5000/reviews"
+const BASE_URL = "http://localhost:5000"
 
 
 export default function Home() {
@@ -37,7 +37,7 @@ export default function Home() {
   const [rating, setRating] = useState(0)
 
   const loadAllReviewsButton = () => {
-    fetch(BASE_URL)
+    fetch(`${BASE_URL}/reviews`)
       .then((response) => {
         return response.json()
       }).then((data) => {
@@ -47,9 +47,21 @@ export default function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(title)
-    console.log(comments)
-    console.log(rating)
+    fetch(`${BASE_URL}/reviews`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title,
+        comment: comments,
+        rating
+      })
+    }).then((response) => {
+      return response.json()
+    }).then((data) => {
+      setReviews([...reviews, data])
+    })
   }
 
 
