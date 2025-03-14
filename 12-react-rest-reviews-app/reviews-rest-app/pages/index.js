@@ -25,7 +25,7 @@ import Typography from '@mui/material/Typography';
 import AdaptationReviewCard from '@/components/AdaptationReviewCard';
 
 // own logic / helpers
-import { getReviews } from '../utils/api/reviews.js'
+import { getReviews, postReview } from '../utils/api/reviews.js'
 
 
 export default function Home() {
@@ -44,20 +44,12 @@ export default function Home() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    fetch(`${BASE_URL}/reviews`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        title,
-        comment: comments,
-        rating
-      })
-    }).then((response) => {
-      return response.json()
-    }).then((data) => {
-      setReviews([...reviews, data])
+    postReview({
+      title,
+      comment: comments,
+      rating
+    }).then((data)=> {
+      setReviews([data, ...reviews])
     })
   }
 
