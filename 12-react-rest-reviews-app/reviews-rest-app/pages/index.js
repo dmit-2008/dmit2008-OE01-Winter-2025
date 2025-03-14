@@ -24,6 +24,9 @@ import Typography from '@mui/material/Typography';
 // own components
 import AdaptationReviewCard from '@/components/AdaptationReviewCard';
 
+// own logic / helpers
+import { getReviews } from '../utils/api/reviews.js'
+
 
 export default function Home() {
 
@@ -34,12 +37,9 @@ export default function Home() {
   const [rating, setRating] = useState(0)
 
   const loadAllReviewsButton = () => {
-    fetch(`${BASE_URL}/reviews`)
-      .then((response) => {
-        return response.json()
-      }).then((data) => {
-        setReviews(data)
-      })
+    getReviews().then((data) =>{
+      setReviews(data)
+    })
   }
 
   const handleSubmit = (event) => {
