@@ -27,6 +27,12 @@ import AdaptationReviewCard from '@/components/AdaptationReviewCard';
 
 const BASE_URL = "http://localhost:5000"
 
+const errorMessageMap = {
+  200: "hehe cool great",
+  201: "created successfully",
+  404: "not found",
+  500: "internal server error",
+}
 
 export default function Home() {
 
@@ -40,6 +46,7 @@ export default function Home() {
     fetch(`${BASE_URL}/reviews`)
       .then((response) => {
         return response.json()
+        console.log(errorMessageMap[response.status])
       }).then((data) => {
         setReviews(data)
       })
@@ -63,7 +70,6 @@ export default function Home() {
       setReviews([...reviews, data])
     })
   }
-
 
   return (
     <div>
