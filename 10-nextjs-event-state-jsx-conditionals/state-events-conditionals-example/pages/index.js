@@ -42,6 +42,7 @@ export default function Home() {
 
   const filterMovies = () => {
     // make a copy of the movie list that we'll mutate
+    let filteredMovieList = [...MOVIE_LIST]
     // filter for any values for {search} that are substrings for movie titles
     if (search.trim() !== "") {
       filteredMovieList = filteredMovieList.filter(
@@ -109,7 +110,7 @@ export default function Home() {
                   label="year"
                   variant="standard"
                   sx={{width: '100%'}}
-                  type="date"
+                  type="number"
                   value={year}
                   onChange={(event)=> {
                     setYear(event.target.value)
