@@ -135,9 +135,10 @@ export default function Home() {
               py: 4,
             }}
           />
-          {reviews.map((adaptation, index)=> {
+          {reviews.map((adaptation, index) => {
             return <AdaptationReviewCard
               key={index}
+              id={adaptation.id}
               rating={adaptation.rating}
               title={adaptation.title}
               comment={adaptation.comment}

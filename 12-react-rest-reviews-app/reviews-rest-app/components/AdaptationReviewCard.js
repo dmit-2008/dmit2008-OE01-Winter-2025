@@ -9,8 +9,15 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+// api functions
+import { deleteReview } from '@/utils/api/reviews'
 
-export default function AdaptationReviewCard({rating, title, comment}) {
+
+export default function AdaptationReviewCard({id, rating, title, comment}) {
+
+  const deleteButtonClickHandler = () => {
+    return deleteReview(id)
+  }
 
   return (
     <Card
@@ -24,6 +31,7 @@ export default function AdaptationReviewCard({rating, title, comment}) {
         }
         action={
           <IconButton
+            onClick={deleteButtonClickHandler}
           >
             <DeleteIcon />
           </IconButton>

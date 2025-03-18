@@ -15,6 +15,7 @@ export const getReviews = () => {
     })
 }
 
+
 export const postReview = ({title, comment, rating}) => {
   return fetch(`${BASE_URL}/reviews/`, {
     method: "POST",
@@ -36,5 +37,18 @@ export const postReview = ({title, comment, rating}) => {
     //   rating: rating}).then((returnedData) => { }))
     // where title, comment and rating or function
     return Promise.resolve(data)
+    })
+}
+
+
+export const deleteReview = (id) => {
+  return fetch(`${BASE_URL}/reviews/${id}`, {
+    method: "DELETE",
+    header: {
+      'Content-Type': 'application/json',
+    }
+    })
+    .then((response)=> {
+      return response.ok
     })
 }
