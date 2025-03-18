@@ -15,6 +15,7 @@ import Grid from '@mui/material/Grid';
 
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
+import Rating from '@mui/material/Rating';
 
 import TextField from '@mui/material/TextField';
 import Toolbar from '@mui/material/Toolbar';
@@ -98,24 +99,13 @@ export default function Home() {
               <Grid item xs={12} sm={12}>
                 <FormControl>
                   <FormLabel id="adaptation-rating">Rating</FormLabel>
-                  <RadioGroup
-                    row
-                    aria-labelledby="adaptation-rating"
-                    name="rating-buttons-group"
+                  <Rating
+                    id="review-rating"
+                    name="review-rating"
+                    max={10}
                     value={rating}
                     onChange={(e) => {setRating(e.target.value)}}
-                  >
-                    <FormControlLabel value="1" control={<Radio />} label="1" />
-                    <FormControlLabel value="2" control={<Radio />} label="2" />
-                    <FormControlLabel value="3" control={<Radio />} label="3" />
-                    <FormControlLabel value="4" control={<Radio />} label="4" />
-                    <FormControlLabel value="5" control={<Radio />} label="5" />
-                    <FormControlLabel value="6" control={<Radio />} label="6" />
-                    <FormControlLabel value="7" control={<Radio />} label="7" />
-                    <FormControlLabel value="8" control={<Radio />} label="8" />
-                    <FormControlLabel value="9" control={<Radio />} label="9" />
-                    <FormControlLabel value="10" control={<Radio />} label="10" />
-                  </RadioGroup>
+                  />
                </FormControl>
               </Grid>
               <Grid item xs={12} sm={12}>
