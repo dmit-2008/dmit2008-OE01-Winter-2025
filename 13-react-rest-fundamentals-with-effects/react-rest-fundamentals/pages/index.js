@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 
 export default function Home() {
 
-  const RANDOM_QUOTE_URL = 'https://api.quotable.io/random'
+  const RANDOM_QUOTE_URL = 'http://api.quotable.io/random'
 
   const [quoteData, setQuoteData] = useState({
     quote: "Quote here.",
