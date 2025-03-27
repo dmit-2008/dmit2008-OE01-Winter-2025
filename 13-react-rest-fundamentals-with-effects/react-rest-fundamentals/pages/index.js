@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Head from "next/head";
 
@@ -21,7 +21,12 @@ export default function Home() {
     author: "Author here"
   })
 
-  const handleClick = () => {
+  useEffect(
+    () => {getQuote()},
+    []
+  )
+
+  const getQuote = () => {
     fetch(RANDOM_QUOTE_URL)
       .then((response) => {
         return response.json()
@@ -32,6 +37,7 @@ export default function Home() {
         })
       })
   }
+
 
   return (
     <div>
@@ -75,7 +81,7 @@ export default function Home() {
             >
               <Button
                 variant="contained"
-                onClick={handleClick}
+                onClick={getQuote}
               >
                 Get New Quote
               </Button>
