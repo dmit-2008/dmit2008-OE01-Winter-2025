@@ -11,20 +11,27 @@ import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
+import CircularProgress from '@mui/material/CircularProgress'
 
 export default function Home() {
 
   const RANDOM_QUOTE_URL = 'http://api.quotable.io/random'
 
+  const [loading, setLoading] = useState(true)
   const [quoteData, setQuoteData] = useState({
     quote: "Quote here.",
     author: "Author here"
   })
 
-  useEffect(
-    () => {getQuote()},
-    []
-  )
+  // thanks Sonu!
+  useEffect(() => {
+    // force a wait, just so we can see the spinner toggle work
+    setTimeout(() => {
+      getQuote()
+      setLoading(false)
+    }, 3000);
+  },[])
+
 
   const getQuote = () => {
     fetch(RANDOM_QUOTE_URL)
@@ -40,7 +47,7 @@ export default function Home() {
 
 
   return (
-    <div>
+    <>
 
       <AppBar position="relative">
         <Toolbar>
@@ -59,18 +66,22 @@ export default function Home() {
               pb: 6,
             }}
           >
-            <Typography variant="h5" align="center" color="text.primary" paragraph>
-              {quoteData.quote}
-            </Typography>
-            <Typography
-              component="h1"
-              variant="h6"
-              align="center"
-              color="text.secondary"
-              gutterBottom
-            >
-              - {quoteData.author}
-            </Typography>
+            {loading && <CircularProgress /> || 
+              <Box>
+                <Typography variant="h5" align="center" color="text.primary" paragraph>
+                  {quoteData.quote}
+                </Typography>
+                <Typography
+                  component="h1"
+                  variant="h6"
+                  align="center"
+                  color="text.secondary"
+                  gutterBottom
+                >
+                  - {quoteData.author}
+                </Typography>
+              </Box>
+            }
 
             <Box
              display="flex"
@@ -91,6 +102,6 @@ export default function Home() {
         </Container>
       </main>
 
-    </div>
+    </>
   );
 }
