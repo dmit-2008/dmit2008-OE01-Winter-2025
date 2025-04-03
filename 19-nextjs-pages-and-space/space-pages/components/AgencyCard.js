@@ -32,7 +32,7 @@ export default function AgencyCard(props) {
     </CardContent>
     <CardActions>
       <Button
-        onClick={/* let's do something here !!! */}
+        onClick={() => {}}
         size="small"
       >
         Go to Agency
