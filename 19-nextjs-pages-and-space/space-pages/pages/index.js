@@ -39,6 +39,7 @@ export default function Home() {
           <Typography variant="h3">
             Space Agencies
           </Typography>
+
           <Box
             sx={{
               marginTop: 2,
@@ -47,8 +48,18 @@ export default function Home() {
               alignItems: 'center',
             }}
           >
-
+            {agencies.map((agency) => {
+              return <AgencyCard
+                key={agency.id}
+                id={agency.id}
+                imageUrl={agency.image_url}
+                name={agency.name}
+                abbreviation={agency.abbrev}
+                description={agency.description}
+              />
+            })}
           </Box>
+
         </Container>
 
     </div>
