@@ -1,7 +1,5 @@
-// let's import the router here
-import { useRouter } from 'next/router';
-
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -11,8 +9,20 @@ import Typography from '@mui/material/Typography';
 import AgencyCard from '@components/AgencyCard';
 import NavBar from '@components/NavBar';
 
+import { getAgencies } from '@api/agencies'
+
 
 export default function Home() {
+
+  const [agencies, setAgencies] = useState([])
+
+  useEffect(() => {
+    getAgencies("").then((data) => {
+      console.log(data)
+      setAgencies(data.results)
+    })
+  }, [])
+
 
   return (
     <div>

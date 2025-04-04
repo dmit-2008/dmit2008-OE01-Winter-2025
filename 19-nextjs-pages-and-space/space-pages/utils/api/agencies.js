@@ -3,7 +3,8 @@ import { BASE_URL } from './base.js'
 const getAgencies = ({search}) => {
   let url = `${BASE_URL}/agencies?featured=true`
   if (search) {
-    url = `${BASE_URL}/agencies?search=${search}`
+    url = `${BASE_URL}/agencies?format=json`
+    // url = `${BASE_URL}/agencies?search=${search}`
   }
   return fetch(url)
     .then((response)=> {
