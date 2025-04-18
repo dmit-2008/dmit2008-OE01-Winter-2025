@@ -32,20 +32,17 @@ const AUTHOR = "Charles Baudelaire"
 //              https://jestjs.io/docs/setup-teardown#one-time-setup
 const server = setupServer(
 
-  // here, i'm mocking one possible API call.
-  // if i wanted to handle multiple, i'd just... write more of these as setupServer arguments!
+  // here, i'm mocking one possible API endpoint — for multiple endpoints, write more of these as arguments!
   http.get(
-    `${BASE_URL}/random`,
-    (req, res, ctx) => {  // request, response, context!
+    `${BASE_URL}/api/random_quote`,
+    () => {
       // now we're going to respond using a mocked JSON body
-      return res(
-        ctx.json(
-            {"_id":"someid",
-            "content": QUOTE,
-            "author": AUTHOR,
-            }
-        ))
-    })
+      return HttpResponse.json({
+        quote: QUOTE,
+        author: AUTHOR,
+      })
+    }
+  )
 
 );
 

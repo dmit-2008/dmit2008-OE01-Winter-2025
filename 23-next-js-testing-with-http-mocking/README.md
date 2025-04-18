@@ -64,79 +64,82 @@ const customJestConfig = {
 - create the file `tests/Home.test.js`
 - in the file import the following
 ```jsx
-import 'isomorphic-fetch' // needed for no "fetch is not defined errors
-
-import { render, screen, act} from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import '@testing-library/jest-dom'
 
-import { rest } from 'msw'; // this will essentially mock the rest calls.
-import { setupServer } from 'msw/node'; // we'll set up a "mocked" server
+import 'isomorphic-fetch'                        // needed to fix 'fetch' runtime errors; see explanation above
+import { http, HttpResponse } from 'msw';        // this will mock http requests & responses
+import { setupServer } from 'msw/node';          // we'll set up a "mocked" server that simulates low-level HTTP interaction
 
-import { BASE_URL } from '../utils/api/base.js'; // we'll need this for our "mocked" server
+import { BASE_URL } from '../utils/api/base.js'; // we'll need this for our "mocked" HTTP server / REST API
 import Home from '../pages/index.js'
-
 ```
-- setup your server so that it begins to listen to `beforeAll` of the tests and closes `afterAll` of the tests are done.
+- then, set up your server so that it begins to listen `beforeAll` of the tests run and closes `afterAll` of the tests are done.
 ```jsx
-// ... imports from above ...
+// ... imports from Step 2 go here ...
 
+// mock data
 const QUOTE = "All I required to be happy was friendship and people I could admire."
 const AUTHOR = "Charles Baudelaire"
 
+
+// server setup
 const server = setupServer(
 
-    rest.get(`${BASE_URL}/random`, (req, res, ctx) => {
-        // respond using a mocked JSON body
-        return res(ctx.json(
-            {"_id":"someid",
-            "content": QUOTE,
-            "author": AUTHOR,
-            }
-        ))
-    })
+  // here, i'm mocking one possible API endpoint — for multiple endpoints, write more of these as arguments!
+  http.get(
+    `${BASE_URL}/api/random_quote`,
+    () => {
+      // now we're going to construct a response using a mocked JSON body
+      return HttpResponse.json({
+        quote: QUOTE,
+        author: AUTHOR,
+      })
+    }
+  )
+
 );
 
+// now that we have the server set up, 'run' it before our actual tests get called!
 beforeAll(() => {
-  server.listen();
+  server.listen();  // before all tests run, simulate server starting & listening for requests
 });
 
 afterAll(() => {
-  server.close();
+  server.close();  // after all tests are finished, simulate server stopping
 });
-
-// ... we'll write our tests down here ...
 ```
 Note:
-Here we use `setupServer` with one argument, if you wanted to handle multiple requests just keep on adding them as different arguments. You could also add of the `rest` requests in an array and then spread that array in the `setupServer` as
+Here we use `setupServer` with one argument.
+If you wanted to handle multiple requests, just keep on adding them as different arguments.
+You could also add of the `rest` requests in an array and then spread that array in the `setupServer` as
 arguments.
-See that `beforeAll` will be called before all the `test`s
-See that `afterAll` will be called after all the `test`s
+See that `beforeAll` will be called before all the `test`s.
+See that `afterAll` will be called after all the `test`s.
 
 3. Let's write a test that will wait for the `useEffect` to render our first load of the `Home` component.
 ```jsx
-// ... imports here ...
+// ... imports from Step 2 go here ...
 
-// the following two lines are shown for emphasis.
-const QUOTE = "All I required to be happy was friendship and people I could admire."
-const AUTHOR = "Charles Baudelaire"
+// ... server setup from Step 3 goes here, mocked with QUOTE & AUTHOR ...
 
-// ... server setup (above) here, mocked with QUOTE, AUTHOR ...
+// in my actual code, I've used describe + it syntax, but I'll keep it vanilla for the readme.
 test("test home loads a quote on load", async () => {
-    // wait for the home piece to render.
+    // wait for the Home component to render.
     await act(() => {
         render(<Home/>)
     })
-    // get the author and quote element
+    // get the author and quote element from the rendered DOM
     let quoteElement = screen.getByTestId("quote")
     let authorElement = screen.getByTestId("author")
 
-    // check to see that they are equal to the new values.
+    // check to see that they contain the predetermined values.
     expect(quoteElement).toHaveTextContent(QUOTE)
     expect(authorElement).toHaveTextContent(AUTHOR)
 })
 ```
-This is using an using function because it needs to wait for the `useEffect` to fire on mount.
-Second we see that our quotes are not the original values we see in the `Home` components (see they are different than `DEFAULT_QUOTE`, `DEFAULT_AUTHOR`) and that our values are now equal to the `QUOTE` and `AUTHOR`.
+This is using an `await` function because it needs to wait for the `useEffect` to fire on mount.
+We also see that our quote data isn't the original values we see in the `Home` component's default state (i.e. different than `DEFAULT_QUOTE`, `DEFAULT_AUTHOR`), and that our values are now equal to the `QUOTE` and `AUTHOR`.
 
 NOTE: this needs to be an "async" function that "awaits" the act or you'll struggle.
 
