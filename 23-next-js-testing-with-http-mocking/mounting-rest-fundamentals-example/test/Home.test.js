@@ -12,12 +12,12 @@
 */
 
 // imports ------------------------------------------------------------------------------
-import { render, screen, act} from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import '@testing-library/jest-dom'
 
 import 'isomorphic-fetch'                        // needed to fix 'fetch' runtime errors; see explanation above
-import { rest } from 'msw';                      // this will essentially mock the rest calls.
-import { setupServer } from 'msw/node';          // we'll set up a "mocked" server
+import { http, HttpResponse } from 'msw';        // this will mock http requests & responses
+import { setupServer } from 'msw/node';          // we'll set up a "mocked" server that simulates low-level HTTP interaction
 
 import { BASE_URL } from '../utils/api/base.js'; // we'll need this for our "mocked" HTTP server / REST API
 import Home from '../pages/index.js'
@@ -30,11 +30,11 @@ const AUTHOR = "Charles Baudelaire"
 
 // server setup -------------------------------------------------------------------------
 //              https://jestjs.io/docs/setup-teardown#one-time-setup
-server = setupServer(
+const server = setupServer(
 
   // here, i'm mocking one possible API call.
   // if i wanted to handle multiple, i'd just... write more of these as setupServer arguments!
-  rest.get(
+  http.get(
     `${BASE_URL}/random`,
     (req, res, ctx) => {  // request, response, context!
       // now we're going to respond using a mocked JSON body
@@ -63,20 +63,28 @@ afterAll(() => {
 /* tests --------------------------------------------------------------------------------
 
      - Since we're testing code that involves async HTTP reqs, all our tests must use async/await!
+       Otherwise, the test will run/finish *before* the promise is resolved (or rejected).
 
-     - If you want to force a test to fail, you can chain the expectation with ".not",
+     - If you want to force a test to fail, you can quickly chain the expectation with ".not"!
          e.g. expect(something).not.toHaveTextContext("expected value")
 
-     - If we want to test the outcome of new data coming in after initial load, we simulate a new req/res INSIDE the test
+     - If we want to test the outcome of new data coming in after initial load, we can to write a new req/res mocker INSIDE that test's scope
 
-     - We can also create a grouped context for a series of related unit tests.
+     - We can also create a grouped context for a series of related unit tests — https://jestjs.io/docs/api#describename-fn
        Whether you use these at all, and/or stick to test(), is totally up to you:
          describe() : collects a group of tests 
          it()       : is an alias for test() that allows more human-readable test code, e.g. it("should work")
 
 */
 
+describe("a random quote via API", () => {
 
-// 1. test that data first loads in on page load / component mounting
+  it("should load when page initially loads / Home component mounts", () => {
 
-// 2. test that new data is loaded when the New Quote button is clicked
+  });
+
+  it("should load with new data when New Quote button is clicked", () => {
+
+  });
+
+});
