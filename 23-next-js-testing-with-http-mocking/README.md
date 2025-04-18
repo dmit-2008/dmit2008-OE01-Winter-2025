@@ -112,10 +112,11 @@ afterAll(() => {
 Note:
 Here we use `setupServer` with one argument.
 If you wanted to handle multiple requests, just keep on adding them as different arguments.
+
 You could also add of the `rest` requests in an array and then spread that array in the `setupServer` as
 arguments.
-See that `beforeAll` will be called before all the `test`s.
-See that `afterAll` will be called after all the `test`s.
+
+See that `beforeAll` will be called before all the `test`s & `afterAll` will be called after all the `test`s.
 
 3. Let's write a test that will wait for the `useEffect` to render our first load of the `Home` component.
 ```jsx
@@ -141,7 +142,7 @@ test("test home loads a quote on load", async () => {
 This is using an `await` function because it needs to wait for the `useEffect` to fire on mount.
 We also see that our quote data isn't the original values we see in the `Home` component's default state (i.e. different than `DEFAULT_QUOTE`, `DEFAULT_AUTHOR`), and that our values are now equal to the `QUOTE` and `AUTHOR`.
 
-NOTE: this needs to be an "async" function that "awaits" the act or you'll struggle.
+NOTE: the `test` *needs* to be an `async` function that `await`s the `act` or you'll struggle.
 
 4. Let's write a test that checks the quote is changed on the `Home` component after the button is clicked.
 ```jsx

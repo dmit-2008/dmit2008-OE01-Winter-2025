@@ -63,6 +63,7 @@ afterAll(() => {
        Otherwise, the test will run/finish *before* the promise is resolved (or rejected).
 
      - If you want to force a test to fail, you can quickly chain the expectation with ".not"!
+       This can be useful for trying to check whether your test is returning false positives.
          e.g. expect(something).not.toHaveTextContext("expected value")
 
      - To test the outcome of replacement data coming in *after* initial load — e.g. on button click —
@@ -92,7 +93,7 @@ describe("a random quote via API", () => {
 
     */
 
-    // 1. Render the component — whose useEffect code inherently triggers an initial quote load.
+    // 1. Render the component — whose useEffect code inherently triggers an initial quote load, replacing default state values.
     await act(  // await because the component uses async code; act because the component state changes after mounting.
       () => {
         render(<Home />)
@@ -111,6 +112,56 @@ describe("a random quote via API", () => {
   });
 
   it("should load with new data when New Quote button is clicked", async () => {
+
+    // 1. Render the component. Remember, this (mock-)loads an initial quote!
+    await act(
+      () => {
+        render(<Home />)
+      }
+    )
+
+    // 2. Grab/store the DOM elements we need
+    let quoteElement = screen.getByTestId("quote")
+    let authorElement = screen.getByTestId("author")
+    let button = screen.getByTestId("new-quote-button")  
+    // ^ peep how precisely & easily the data-testid prop lets us extract elements!
+
+    //  — but wait!
+    //    We need a *new* fetched quote for this test, but our mocked endpoint only returns the Baudelaire one. wat do?
+
+    //    a. we can immediately get the easy part out of the way — just declare the new data we'll want to mock with.
+    const NEW_QUOTE = "Family."
+    const NEW_AUTHOR = "Vin Diesel" 
+
+    //    b. next, we can just replace the endpoint we wrote in serverSetup with one that returns different data!
+
+    server.use(  // hey, server! use this new API instance
+
+      http.get(
+        `${BASE_URL}/api/random_quote`,
+        // ^ this is the same URL route as before, so all we're really doing here is overwriting the data it returns!
+        () => {
+          return HttpResponse.json({
+            quote: NEW_QUOTE,
+            author: NEW_AUTHOR,
+          })
+        }
+      )
+    )
+
+    //    c. SMASH that like/subscribe button to simulate the button click
+    await act(  
+      // await : because we're using async code & need to guarantee component fully loads/mounts
+      // act   : because we're triggering an action/behaviour that updates application state 
+      () => {
+        button.click()
+      }
+    )
+
+    // 3. Declare what we expect to happen! 
+    //    You can be certain your test isn't falsely passing if it fails with the original QUOTE and AUTHOR instead of the NEW_* ones.
+    expect(quoteElement).toHaveTextContent(NEW_QUOTE)
+    expect(authorElement).toHaveTextContent(NEW_AUTHOR)
 
   });
 
