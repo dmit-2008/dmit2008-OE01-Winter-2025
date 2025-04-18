@@ -68,7 +68,8 @@ afterAll(() => {
      - If you want to force a test to fail, you can quickly chain the expectation with ".not"!
          e.g. expect(something).not.toHaveTextContext("expected value")
 
-     - If we want to test the outcome of new data coming in after initial load, we can to write a new req/res mocker INSIDE that test's scope
+     - To test the outcome of replacement data coming in *after* initial load — e.g. on button click —
+       we can write a new req/res mocker INSIDE that test's scope.
 
      - We can also create a grouped context for a series of related unit tests — https://jestjs.io/docs/api#describename-fn
        Whether you use these at all, and/or stick to test(), is totally up to you:
@@ -80,6 +81,19 @@ afterAll(() => {
 describe("a random quote via API", () => {
 
   it("should load when page initially loads / Home component mounts", async () => {
+    /* Let's start by verbalising what behaviour we want to see out of this test first.
+
+      1. First, render the component.
+         BECAUSE IT HAS AN IMMEDIATE STATE CHANGE WHEN MOUNTING, we have to:
+           - *await* the component render
+           - *act*   in order to do so — because the component is stateful, and its state changes on mount!
+         Otherwise, we have no idea if everything's loaded by the time the test runs.
+
+      2. Then, grab the elements we need in order to simulate interaction & observe the outcome of code behaviour.
+
+      3. Finally, declare what we expect to happen. Then we're all done!
+
+    */
 
   });
 
