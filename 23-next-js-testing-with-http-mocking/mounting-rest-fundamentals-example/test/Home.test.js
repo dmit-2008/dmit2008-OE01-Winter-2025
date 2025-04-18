@@ -60,9 +60,22 @@ afterAll(() => {
 });
 
 
-// tests --------------------------------------------------------------------------------
+/* tests --------------------------------------------------------------------------------
 
-// i want to...
+     - Since we're testing code that involves async HTTP reqs, all our tests must use async/await!
+
+     - If you want to force a test to fail, you can chain the expectation with ".not",
+         e.g. expect(something).not.toHaveTextContext("expected value")
+
+     - If we want to test the outcome of new data coming in after initial load, we simulate a new req/res INSIDE the test
+
+     - We can also create a grouped context for a series of related unit tests.
+       Whether you use these at all, and/or stick to test(), is totally up to you:
+         describe() : collects a group of tests 
+         it()       : is an alias for test() that allows more human-readable test code, e.g. it("should work")
+
+*/
+
 
 // 1. test that data first loads in on page load / component mounting
 
