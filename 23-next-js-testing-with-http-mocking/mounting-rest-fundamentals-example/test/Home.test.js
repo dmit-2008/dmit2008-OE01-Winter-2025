@@ -92,6 +92,22 @@ describe("a random quote via API", () => {
 
     */
 
+    // 1. Render the component — whose useEffect code inherently triggers an initial quote load.
+    await act(  // await because the component uses async code; act because the component state changes after mounting.
+      () => {
+        render(<Home />)
+      }
+    )
+
+    // 2. Grab/store the DOM elements we need — we can do this cleanly here, since we added data-testid props to the MUI components.
+    let quoteElement = screen.getByTestId("quote")
+    let authorElement = screen.getByTestId("author")
+
+    // 3. Declare what we expect to happen — this is the 'actual' test; everything before is just the necessary setup.
+    expect(quoteElement).toHaveTextContent(QUOTE)
+    expect(authorElement).toHaveTextContent(AUTHOR)
+
+    // Boom, done!
   });
 
   it("should load with new data when New Quote button is clicked", async () => {
