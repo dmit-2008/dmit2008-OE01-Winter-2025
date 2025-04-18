@@ -79,11 +79,11 @@ afterAll(() => {
 
 describe("a random quote via API", () => {
 
-  it("should load when page initially loads / Home component mounts", () => {
+  it("should load when page initially loads / Home component mounts", async () => {
 
   });
 
-  it("should load with new data when New Quote button is clicked", () => {
+  it("should load with new data when New Quote button is clicked", async () => {
 
   });
 
